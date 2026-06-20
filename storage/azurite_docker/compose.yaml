@@ -1,0 +1,36 @@
+name: azurite_docker
+
+services:
+  azurite_docker:
+    image: mcr.microsoft.com/azure-storage/azurite:latest
+    container_name: azurite_docker
+
+    env_file:
+      - .env
+
+    command: >
+      azurite
+      --blobHost 0.0.0.0
+      --queueHost 0.0.0.0
+      --tableHost 0.0.0.0
+      --location /data
+      --debug /data/debug.log
+
+    ports:
+      - "${AZURITE_BLOB_PORT}:10000"
+      - "${AZURITE_QUEUE_PORT}:10001"
+      - "${AZURITE_TABLE_PORT}:10002"
+
+    volumes:
+      - azurite_docker_data:/data
+
+    restart: unless-stopped
+
+networks:
+  default:
+    external: true
+    name: dockerlab_network
+
+volumes:
+  azurite_docker_data:
+    name: azurite_docker_data

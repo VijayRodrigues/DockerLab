@@ -1,0 +1,31 @@
+name: localstack_docker
+
+services:
+  localstack_docker:
+    image: localstack/localstack:4.4.0
+    container_name: localstack_docker
+
+    env_file:
+      - .env
+
+    environment:
+      DEBUG: 1
+      TZ: ${TZ}
+
+    ports:
+      - "${LOCALSTACK_PORT}:4566"
+
+    volumes:
+      - localstack_docker_data:/var/lib/localstack
+      - /var/run/docker.sock:/var/run/docker.sock
+
+    restart: unless-stopped
+
+networks:
+  default:
+    external: true
+    name: dockerlab_network
+
+volumes:
+  localstack_docker_data:
+    name: localstack_docker_data

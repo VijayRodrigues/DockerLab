@@ -50,3 +50,7 @@ orchestration/airflow_docker/logs/*
 # ==========================
 *.tmp
 *.bak
+
+
+
+orchestration/airflow_docker/config/airflow.cfg
