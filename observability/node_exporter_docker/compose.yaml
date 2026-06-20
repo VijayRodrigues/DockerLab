@@ -1,0 +1,25 @@
+name: node_exporter_docker
+
+services:
+  node_exporter_docker:
+    image: prom/node-exporter:v1.9.1
+    container_name: node_exporter_docker
+
+    env_file:
+      - .env
+
+    ports:
+      - "${NODE_EXPORTER_PORT}:9100"
+
+    command:
+      - "--path.rootfs=/host"
+
+    volumes:
+      - /:/host:ro
+
+    restart: unless-stopped
+
+networks:
+  default:
+    external: true
+    name: dockerlab_network

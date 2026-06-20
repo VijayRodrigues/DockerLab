@@ -1,0 +1,31 @@
+name: grafana_docker
+
+services:
+  grafana_docker:
+    image: grafana/grafana:12.1.1
+    container_name: grafana_docker
+
+    env_file:
+      - .env
+
+    environment:
+      GF_SECURITY_ADMIN_USER: ${GRAFANA_ADMIN_USER}
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_ADMIN_PASSWORD}
+      TZ: ${TZ}
+
+    ports:
+      - "${GRAFANA_PORT}:3000"
+
+    volumes:
+      - grafana_docker_data:/var/lib/grafana
+
+    restart: unless-stopped
+
+networks:
+  default:
+    external: true
+    name: dockerlab_network
+
+volumes:
+  grafana_docker_data:
+    name: grafana_docker_data

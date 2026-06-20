@@ -1,0 +1,30 @@
+name: prometheus_docker
+
+services:
+  prometheus_docker:
+    image: prom/prometheus:v3.5.0
+    container_name: prometheus_docker
+
+    env_file:
+      - .env
+
+    ports:
+      - "${PROMETHEUS_PORT}:9090"
+
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_docker_data:/prometheus
+
+    restart: unless-stopped
+
+networks:
+  default:
+    external: true
+    name: dockerlab_network
+
+volumes:
+  prometheus_docker_data:
+    name: prometheus_docker_data
