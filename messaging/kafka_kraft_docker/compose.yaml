@@ -1,0 +1,37 @@
+name: kafka_kraft_docker
+
+services:
+  kafka_kraft_docker:
+    image: apache/kafka:4.1.2
+    container_name: kafka_kraft_docker
+
+    env_file:
+      - .env
+
+    environment:
+      KAFKA_NODE_ID: ${KAFKA_NODE_ID}
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_LISTENERS: PLAINTEXT://:9092,CONTROLLER://:9093
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:${KAFKA_BROKER_PORT}
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka_kraft_docker:9093
+      KAFKA_CLUSTER_ID: ${KAFKA_CLUSTER_ID}
+      TZ: ${TZ}
+
+    ports:
+      - "${KAFKA_BROKER_PORT}:9092"
+
+    volumes:
+      - kafka_kraft_docker_data:/var/lib/kafka/data
+
+    restart: unless-stopped
+
+volumes:
+  kafka_kraft_docker_data:
+    name: kafka_kraft_docker_data
+
+networks:
+  default:
+    external: true
+    name: dockerlab_network    

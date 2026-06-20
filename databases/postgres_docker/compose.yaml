@@ -1,0 +1,32 @@
+name: postgres_docker
+
+services:
+  postgres_docker:
+    image: postgres:17
+    container_name: postgres_docker
+
+    env_file:
+      - .env
+
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      TZ: ${TZ}
+
+    ports:
+      - "${POSTGRES_PORT}:5432"
+
+    volumes:
+      - postgres_docker_data:/var/lib/postgresql/data
+
+    restart: unless-stopped
+
+volumes:
+  postgres_docker_data:
+    name: postgres_docker_data
+
+networks:
+  default:
+    external: true
+    name: dockerlab_network    

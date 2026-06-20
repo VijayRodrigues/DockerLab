@@ -1,0 +1,28 @@
+name: kafka_ui_docker
+
+services:
+  kafka_ui_docker:
+    image: provectuslabs/kafka-ui:latest
+    container_name: kafka_ui_docker
+
+    env_file:
+      - .env
+
+    environment:
+      KAFKA_CLUSTERS_0_NAME: kafka_kraft_docker
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka_kraft_docker:9092
+
+      KAFKA_CLUSTERS_1_NAME: kafka_zookeeper_docker
+      KAFKA_CLUSTERS_1_BOOTSTRAPSERVERS: kafka_kraft_docker:9092
+
+      TZ: ${TZ}
+
+    ports:
+      - "${KAFKA_UI_PORT}:8080"
+
+    restart: unless-stopped
+
+networks:
+  default:
+    external: true
+    name: dockerlab_network    

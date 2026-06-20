@@ -1,0 +1,57 @@
+name: kafka_zookeeper_docker
+
+services:
+
+  zookeeper_docker:
+    image: confluentinc/cp-zookeeper:7.9.2
+    container_name: zookeeper_docker
+
+    env_file:
+      - .env
+
+    environment:
+      ZOOKEEPER_CLIENT_PORT: ${ZOOKEEPER_CLIENT_PORT}
+      TZ: ${TZ}
+
+    ports:
+      - "${ZOOKEEPER_CLIENT_PORT}:2181"
+
+    restart: unless-stopped
+
+  kafka_zookeeper_docker:
+    image: confluentinc/cp-kafka:7.9.2
+    container_name: kafka_zookeeper_docker
+
+    depends_on:
+      - zookeeper_docker
+
+    env_file:
+      - .env
+
+    environment:
+      KAFKA_BROKER_ID: ${KAFKA_BROKER_ID}
+
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper_docker:2181
+
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:${KAFKA_BROKER_PORT}
+
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+
+      TZ: ${TZ}
+
+    ports:
+      - "${KAFKA_BROKER_PORT}:9092"
+
+    volumes:
+      - kafka_zookeeper_docker_data:/var/lib/kafka/data
+
+    restart: unless-stopped
+
+volumes:
+  kafka_zookeeper_docker_data:
+    name: kafka_zookeeper_docker_data
+
+networks:
+  default:
+    external: true
+    name: dockerlab_network    
