@@ -15,4 +15,4 @@ scrape_configs:
   - job_name: "cadvisor"
     static_configs:
       - targets:
-          - cadvisor_docker:8080
+          - cadvisor_docker:8080 
