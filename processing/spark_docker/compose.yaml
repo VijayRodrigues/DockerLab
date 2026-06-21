@@ -1,0 +1,78 @@
+name: spark_docker
+
+services:
+
+  spark-master:
+    image: apache/spark:4.1.0
+    container_name: spark_master_docker
+
+    command: >
+      /opt/spark/bin/spark-class
+      org.apache.spark.deploy.master.Master
+
+    environment:
+      SPARK_NO_DAEMONIZE: "true"
+
+    ports:
+      - "${SPARK_MASTER_PORT}:7077"
+      - "${SPARK_MASTER_WEBUI_PORT}:8080"
+
+    restart: unless-stopped
+
+    networks:
+      - default
+
+  spark-worker-1:
+    image: apache/spark:4.1.0
+    container_name: spark_worker1_docker
+
+    depends_on:
+      - spark-master
+
+    command: >
+      /opt/spark/bin/spark-class
+      org.apache.spark.deploy.worker.Worker
+      spark://spark-master:7077
+
+    environment:
+      SPARK_WORKER_MEMORY: ${SPARK_WORKER_MEMORY}
+      SPARK_WORKER_CORES: ${SPARK_WORKER_CORES}
+      SPARK_NO_DAEMONIZE: "true"
+
+    ports:
+      - "${SPARK_WORKER_WEBUI_PORT}:8081"
+
+    restart: unless-stopped
+
+    networks:
+      - default
+
+  spark-worker-2:
+    image: apache/spark:4.1.0
+    container_name: spark_worker2_docker
+
+    depends_on:
+      - spark-master
+
+    command: >
+      /opt/spark/bin/spark-class
+      org.apache.spark.deploy.worker.Worker
+      spark://spark-master:7077
+
+    environment:
+      SPARK_WORKER_MEMORY: ${SPARK_WORKER_MEMORY}
+      SPARK_WORKER_CORES: ${SPARK_WORKER_CORES}
+      SPARK_NO_DAEMONIZE: "true"
+
+    ports:
+      - "${SPARK_WORKER2_WEBUI_PORT}:8081"
+
+    restart: unless-stopped
+
+    networks:
+      - default
+
+networks:
+  default:
+    external: true
+    name: dockerlab_network
