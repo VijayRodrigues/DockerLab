@@ -21,3 +21,13 @@ scrape_configs:
     static_configs:
       - targets:
           - postgres_exporter_docker:9187
+
+  - job_name: "redis_exporter"
+    static_configs:
+      - targets:
+          - redis_exporter_docker:9121
+          
+  - job_name: "kafka_exporter"
+    static_configs:
+      - targets:
+          - kafka_exporter_docker:9308                    

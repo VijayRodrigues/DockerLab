@@ -1,0 +1,22 @@
+name: kafka_exporter_docker
+
+services:
+  kafka_exporter_docker:
+    image: danielqsj/kafka-exporter:v1.9.0
+    container_name: kafka_exporter_docker
+
+    env_file:
+      - .env
+
+    command:
+      - "--kafka.server=${KAFKA_SERVER}"
+
+    ports:
+      - "${KAFKA_EXPORTER_PORT}:9308"
+
+    restart: unless-stopped
+
+networks:
+  default:
+    external: true
+    name: dockerlab_network
