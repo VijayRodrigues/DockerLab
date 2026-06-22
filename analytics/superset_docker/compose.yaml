@@ -1,0 +1,49 @@
+name: superset_docker
+
+services:
+
+  superset_db:
+    image: postgres:17
+    container_name: superset_postgres_docker
+
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+
+    volumes:
+      - superset_db_data:/var/lib/postgresql/data
+
+    restart: unless-stopped
+
+    networks:
+      - default
+
+  superset:
+    image: apache/superset:latest
+    container_name: superset_docker
+
+    depends_on:
+      - superset_db
+
+    environment:
+      SUPERSET_CONFIG_PATH: /app/pythonpath/superset_config.py
+
+    volumes:
+      - ./docker/superset_config.py:/app/pythonpath/superset_config.py
+
+    ports:
+      - "${SUPERSET_PORT}:8088"
+
+    restart: unless-stopped
+
+    networks:
+      - default
+
+volumes:
+  superset_db_data:
+
+networks:
+  default:
+    external: true
+    name: dockerlab_network
