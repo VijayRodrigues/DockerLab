@@ -1,0 +1,36 @@
+name: dbt_docker
+
+services:
+
+  dbt:
+
+    build: .
+
+    image: dbt_docker:latest
+
+    container_name: dbt_docker
+
+    restart: unless-stopped
+
+    stdin_open: true
+
+    tty: true
+
+    environment:
+      TZ: ${TZ}
+
+    working_dir: /usr/app
+
+    volumes:
+      - ./project:/usr/app
+      - ./profiles:/root/.dbt
+      - ./logs:/usr/app/logs
+      - ./target:/usr/app/target
+
+    networks:
+      - default
+
+networks:
+  default:
+    external: true
+    name: dockerlab_network

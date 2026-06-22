@@ -1,0 +1,25 @@
+dbt_docker:
+
+  target: dev
+
+  outputs:
+
+    dev:
+
+      type: postgres
+
+      host: postgres_docker
+
+      port: 5432
+
+      user: postgres_docker_user
+
+      password: postgres_docker_password
+
+      dbname: postgres_docker_db
+
+      schema: public
+
+      threads: 4
+
+      keepalives_idle: 0

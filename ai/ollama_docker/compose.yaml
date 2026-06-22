@@ -1,0 +1,28 @@
+name: ollama_docker
+
+services:
+
+  ollama:
+
+    image: ollama/ollama:latest
+
+    container_name: ollama_docker
+
+    restart: unless-stopped
+
+    ports:
+      - "${OLLAMA_PORT}:11434"
+
+    environment:
+      TZ: ${TZ}
+
+    volumes:
+      - ./models:/root/.ollama
+
+    networks:
+      - default
+
+networks:
+  default:
+    external: true
+    name: dockerlab_network

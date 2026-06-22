@@ -1,0 +1,42 @@
+name: mlflow_docker
+
+services:
+
+  mlflow:
+
+    build: .
+
+    image: mlflow_docker:latest
+
+    container_name: mlflow_docker
+
+    restart: unless-stopped
+
+    ports:
+      - "${MLFLOW_PORT}:5000"
+
+    environment:
+      TZ: ${TZ}
+
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+      MLFLOW_S3_ENDPOINT_URL: ${MLFLOW_S3_ENDPOINT_URL}
+
+    command: >
+      mlflow server
+      --host 0.0.0.0
+      --port 5000
+      --backend-store-uri postgresql://postgres_docker_user:postgres_docker_password@postgres_docker:5432/postgres_docker_db
+      --artifacts-destination s3://mlflow/
+
+    volumes:
+      - ./artifacts:/mlflow/artifacts
+      - ./logs:/mlflow/logs
+
+    networks:
+      - default
+
+networks:
+  default:
+    external: true
+    name: dockerlab_network
