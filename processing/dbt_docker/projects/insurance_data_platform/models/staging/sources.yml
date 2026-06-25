@@ -1,0 +1,88 @@
+version: 2
+
+sources:
+
+  - name: master
+    schema: master
+
+    tables:
+
+      - name: customer
+        columns:
+          - name: customer_id
+            data_tests:
+              - unique
+              - not_null
+
+      - name: customer_address
+
+      - name: business_customer
+
+      - name: branch
+        columns:
+          - name: branch_id
+            data_tests:
+              - unique
+              - not_null
+
+      - name: agent
+
+      - name: broker
+
+      - name: underwriter
+
+      - name: insurance_product
+
+      - name: coverage_type
+
+  - name: sales
+    schema: sales
+
+    tables:
+
+      - name: quote
+
+      - name: quote_version
+
+  - name: policy
+    schema: policy
+
+    tables:
+
+      - name: policy
+
+      - name: policy_version
+
+      - name: policy_transaction
+
+      - name: policy_coverage
+
+      - name: vehicle
+
+      - name: property
+
+  - name: finance
+    schema: finance
+
+    tables:
+
+      - name: premium
+
+      - name: premium_payment
+
+  - name: claims
+    schema: claims
+
+    tables:
+
+      - name: fnol
+
+      - name: claim
+
+      - name: claim_note
+
+      - name: claim_reserve
+
+      - name: claim_reserve_transaction
+
+      - name: claim_payment
