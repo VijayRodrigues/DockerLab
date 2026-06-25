@@ -1,25 +1,25 @@
 dbt_docker:
-
-  target: dev
-
   outputs:
-
     dev:
-
-      type: postgres
-
-      host: postgres_docker
-
-      port: 5432
-
-      user: postgres_docker_user
-
-      password: postgres_docker_password
-
       dbname: postgres_docker_db
-
-      schema: public
-
-      threads: 4
-
+      host: postgres_docker
       keepalives_idle: 0
+      password: postgres_docker_password
+      port: 5432
+      schema: public
+      threads: 4
+      type: postgres
+      user: postgres_docker_user
+  target: dev
+insurance_data_platform:
+  outputs:
+    dev:
+      dbname: insurance_platform
+      host: postgres_docker
+      pass: postgres_docker_password
+      port: 5432
+      schema: analytics
+      threads: 4
+      type: postgres
+      user: postgres_docker_user
+  target: dev

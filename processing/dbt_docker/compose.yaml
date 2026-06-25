@@ -22,7 +22,7 @@ services:
     working_dir: /usr/app
 
     volumes:
-      - ./project:/usr/app
+      - ./projects:/usr/app/projects
       - ./profiles:/root/.dbt
       - ./logs:/usr/app/logs
       - ./target:/usr/app/target
