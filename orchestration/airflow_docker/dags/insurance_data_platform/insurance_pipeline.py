@@ -1,5 +1,4 @@
 from datetime import datetime
-
 from airflow import DAG
 from airflow.providers.standard.operators.python import PythonOperator
 
@@ -50,11 +49,8 @@ with DAG(
     )
 
     build_dbt = PythonOperator(
-
         task_id="build_dbt",
-
         python_callable=run_dbt
-
     )
 
     generate_and_load >> build_dbt

@@ -84,6 +84,7 @@ x-airflow-common:
     - ${AIRFLOW_PROJ_DIR:-.}/plugins:/opt/airflow/plugins
     - E:/Projects/insurance-data-platform:/opt/projects/insurance-data-platform
     - F:\DockerLab\processing\dbt_docker:/opt/projects/dbt_docker
+    - F:/DockerLab/processing/dbt_docker/profiles:/home/airflow/.dbt
   user: "${AIRFLOW_UID:-50000}:0"
   depends_on:
     &airflow-common-depends-on
