@@ -1,0 +1,46 @@
+
+name: flink_shared
+
+services:
+  jobmanager:
+    image: apache-flink:2.2.1
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: flink-jobmanager
+    volumes:
+      - ./jobs:/opt/flink/usrlib
+    command: jobmanager
+    ports:
+      - "18081:8081"
+    environment:
+      - |
+        FLINK_PROPERTIES=
+        jobmanager.rpc.address: jobmanager
+        jobmanager.memory.process.size: 1024m
+    networks:
+      - dockerlab_network
+    restart: unless-stopped
+
+  taskmanager:
+    image: apache-flink:2.2.1
+    container_name: flink-taskmanager
+    command: taskmanager
+    volumes:
+      - ./jobs:/opt/flink/usrlib
+    depends_on:
+      - jobmanager
+    environment:
+      - |
+        FLINK_PROPERTIES=
+        jobmanager.rpc.address: jobmanager
+        taskmanager.numberOfTaskSlots: 2
+        taskmanager.memory.process.size: 2048m
+    networks:
+      - dockerlab_network
+    restart: unless-stopped
+
+networks:
+  dockerlab_network:
+    external: true
+    name: dockerlab_network

@@ -1,0 +1,3436 @@
+===== DOCKER CONTAINERS =====
+CONTAINER ID   IMAGE                                            COMMAND                  CREATED          STATUS                          PORTS                                                                                NAMES
+9682bc4f28cf   apache-flink:2.2.1                               "/docker-entrypoint.…"   32 minutes ago   Up 20 minutes                   6123/tcp, 8081/tcp                                                                   flink-taskmanager
+f98712254e7b   apache-flink:2.2.1                               "/docker-entrypoint.…"   32 minutes ago   Up 20 minutes                   0.0.0.0:18081->8081/tcp, [::]:18081->8081/tcp                                        flink-jobmanager
+b60f9cd11e38   apache/kafka:4.1.2                               "/__cacert_entrypoin…"   13 hours ago     Up 13 hours                     0.0.0.0:9092->9092/tcp, [::]:9092->9092/tcp                                          kafka_kraft_docker
+8e2f69e07164   pgvector/pgvector:pg17                           "docker-entrypoint.s…"   2 months ago     Exited (255) 3 weeks ago        0.0.0.0:5434->5432/tcp                                                               ai_incident_postgres
+5d9ca8472332   airflow-custom:3.2.1                             "/usr/bin/dumb-init …"   4 months ago     Up 20 hours (healthy)           8080/tcp                                                                             airflow_docker-airflow-worker-1
+6da21eeb8302   airflow-custom:3.2.1                             "/usr/bin/dumb-init …"   4 months ago     Up 20 hours (healthy)           0.0.0.0:8085->8080/tcp, [::]:8085->8080/tcp                                          airflow_docker-airflow-apiserver-1
+a607cf07337b   airflow-custom:3.2.1                             "/usr/bin/dumb-init …"   4 months ago     Up 20 hours (healthy)           8080/tcp                                                                             airflow_docker-airflow-scheduler-1
+17518d44e940   airflow-custom:3.2.1                             "/usr/bin/dumb-init …"   4 months ago     Up 20 hours (healthy)           8080/tcp                                                                             airflow_docker-airflow-triggerer-1
+bbb7aa0c3da1   airflow-custom:3.2.1                             "/usr/bin/dumb-init …"   4 months ago     Up 20 hours (healthy)           8080/tcp                                                                             airflow_docker-airflow-dag-processor-1
+8ed90666bb95   airflow-custom:3.2.1                             "/bin/bash -c 'if [[…"   4 months ago     Exited (0) 4 months ago                                                                                              airflow_docker-airflow-init-1
+6ed706b24bf5   postgres:16                                      "docker-entrypoint.s…"   4 months ago     Up 20 hours (healthy)           5432/tcp                                                                             airflow_docker-postgres-1
+09d199c861cd   redis:7.2-bookworm                               "docker-entrypoint.s…"   4 months ago     Up 20 hours (healthy)           6379/tcp                                                                             airflow_docker-redis-1
+2615075fb200   dbt_docker:latest                                "tail -f /dev/null"      4 months ago     Up 20 hours                                                                                                          dbt_docker
+7e56aeb43d9a   apache/spark:4.1.0                               "/opt/entrypoint.sh …"   4 months ago     Restarting (1) 41 seconds ago                                                                                        spark_master_docker
+73b877c1127f   ghcr.io/open-webui/open-webui:main               "bash start.sh"          4 months ago     Up 20 hours (healthy)           0.0.0.0:3001->8080/tcp, [::]:3001->8080/tcp                                          open_webui_docker
+077015504bb7   ollama/ollama:latest                             "/bin/ollama serve"      4 months ago     Up 20 hours                     0.0.0.0:11434->11434/tcp, [::]:11434->11434/tcp                                      ollama_docker
+081a72908942   mlflow_docker:latest                             "mlflow server --hos…"   4 months ago     Up 20 hours                     0.0.0.0:5000->5000/tcp, [::]:5000->5000/tcp                                          mlflow_docker
+7541c774fa25   jupyterlab_docker:latest                         "jupyter lab --ip=0.…"   4 months ago     Up 20 hours                     0.0.0.0:8888->8888/tcp, [::]:8888->8888/tcp                                          jupyterlab_docker
+8fa4f550f96a   nginx:1.28.0                                     "/docker-entrypoint.…"   4 months ago     Up 20 hours                     0.0.0.0:8089->80/tcp, [::]:8089->80/tcp, 0.0.0.0:8443->443/tcp, [::]:8443->443/tcp   nginx_docker
+79887e7d9086   trinodb/trino:477                                "/usr/lib/trino/bin/…"   4 months ago     Up 20 hours (unhealthy)         0.0.0.0:8082->8080/tcp, [::]:8082->8080/tcp                                          trino_docker
+d48d2e7a8dc5   danielqsj/kafka-exporter:v1.9.0                  "/bin/kafka_exporter…"   4 months ago     Up 20 hours                     0.0.0.0:9308->9308/tcp, [::]:9308->9308/tcp                                          kafka_exporter_docker
+1703e01a0781   oliver006/redis_exporter:v1.69.0                 "/redis_exporter --r…"   4 months ago     Up 20 hours                     0.0.0.0:9121->9121/tcp, [::]:9121->9121/tcp                                          redis_exporter_docker
+d0082db87517   prometheuscommunity/postgres-exporter:v0.17.1    "/bin/postgres_expor…"   4 months ago     Up 20 hours                     0.0.0.0:9187->9187/tcp, [::]:9187->9187/tcp                                          postgres_exporter_docker
+2da576fb51ff   gcr.io/cadvisor/cadvisor:v0.52.1                 "/usr/bin/cadvisor -…"   4 months ago     Up 20 hours (healthy)           0.0.0.0:8088->8080/tcp, [::]:8088->8080/tcp                                          cadvisor_docker
+60e13834af04   prom/node-exporter:v1.9.1                        "/bin/node_exporter …"   4 months ago     Up 20 hours                     0.0.0.0:9100->9100/tcp, [::]:9100->9100/tcp                                          node_exporter_docker
+4624b510433e   grafana/grafana:12.1.1                           "/run.sh"                4 months ago     Up 20 hours                     0.0.0.0:3000->3000/tcp, [::]:3000->3000/tcp                                          grafana_docker
+cafc48121e68   prom/prometheus:v3.5.0                           "/bin/prometheus --c…"   4 months ago     Up 20 hours                     0.0.0.0:9090->9090/tcp, [::]:9090->9090/tcp                                          prometheus_docker
+95f1d8f84a47   localstack/localstack:4.4.0                      "docker-entrypoint.sh"   4 months ago     Up 20 hours (healthy)           0.0.0.0:4566->4566/tcp, [::]:4566->4566/tcp                                          localstack_docker
+91bf0a645e4d   mcr.microsoft.com/azure-storage/azurite:latest   "docker-entrypoint.s…"   4 months ago     Up 20 hours                     0.0.0.0:10000-10002->10000-10002/tcp, [::]:10000-10002->10000-10002/tcp              azurite_docker
+4aa4e4b6724a   minio/minio:latest                               "/usr/bin/docker-ent…"   4 months ago     Up 20 hours                     0.0.0.0:9000-9001->9000-9001/tcp, [::]:9000-9001->9000-9001/tcp                      minio_docker
+e62bc10107e9   confluentinc/cp-kafka:7.9.2                      "/etc/confluent/dock…"   4 months ago     Up 20 hours                     0.0.0.0:9094->9092/tcp, [::]:9094->9092/tcp                                          kafka_zookeeper_docker
+c6da1643e4e7   confluentinc/cp-zookeeper:7.9.2                  "/etc/confluent/dock…"   4 months ago     Up 20 hours                     0.0.0.0:2181->2181/tcp, [::]:2181->2181/tcp                                          zookeeper_docker
+40c75f70cf9a   provectuslabs/kafka-ui:latest                    "/bin/sh -c 'java --…"   4 months ago     Up 20 hours                     0.0.0.0:8080->8080/tcp, [::]:8080->8080/tcp                                          kafka_ui_docker
+65b8756beb30   redis:8                                          "docker-entrypoint.s…"   4 months ago     Up 20 hours                     0.0.0.0:6379->6379/tcp, [::]:6379->6379/tcp                                          redis_docker
+b4f301854288   postgres:17                                      "docker-entrypoint.s…"   4 months ago     Up 20 hours                     0.0.0.0:5433->5432/tcp, [::]:5433->5432/tcp                                          postgres_docker
+
+===== DOCKER NETWORK =====
+[
+    {
+        "Name": "dockerlab_network",
+        "Id": "5d1912a317a429f87f43682e0663b96b54b5594560c941ee235c176b338090a8",
+        "Created": "2026-06-20T06:45:59.364530813Z",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv4": true,
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": {},
+            "Config": [
+                {
+                    "Subnet": "172.24.0.0/16",
+                    "Gateway": "172.24.0.1"
+                }
+            ]
+        },
+        "Internal": false,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Options": {
+            "com.docker.network.enable_ipv4": "true",
+            "com.docker.network.enable_ipv6": "false"
+        },
+        "Labels": {},
+        "Containers": {
+            "077015504bb7a0856dd91e5f232ba71944450403e1365701cecaf4c80807d9c5": {
+                "Name": "ollama_docker",
+                "EndpointID": "d15044e9b3c16c898fb358a54492dc7020d37d1f3eb58f10fcd3d83724876168",
+                "MacAddress": "da:79:0d:0a:dc:e5",
+                "IPv4Address": "172.24.0.16/16",
+                "IPv6Address": ""
+            },
+            "081a7290894277ce0fd6016032f50862650813cc66e4057e245fce42f08a333d": {
+                "Name": "mlflow_docker",
+                "EndpointID": "ac4cf32f26b37e99997cbc2fc4c4e7df3c0d07f9ff953ab59f27caef232ef386",
+                "MacAddress": "8e:c2:b9:8e:1f:b0",
+                "IPv4Address": "172.24.0.10/16",
+                "IPv6Address": ""
+            },
+            "09d199c861cdcba577bc27810131df6d2a190f4bef38a030d2f4eb15c1baad68": {
+                "Name": "airflow_docker-redis-1",
+                "EndpointID": "e44777d86f334fb1473b09633be87cfc876349a36d29fd43c01756da62da8b26",
+                "MacAddress": "1e:b6:71:b5:18:4e",
+                "IPv4Address": "172.24.0.7/16",
+                "IPv6Address": ""
+            },
+            "1703e01a0781a7b6748dfdc8061e9c6f721909f519daad9d78d64571de229bbf": {
+                "Name": "redis_exporter_docker",
+                "EndpointID": "e0542097c80a4ffb0bb9f98f5efdc7ffde67b6814f55fbaf8eb26273c253caf9",
+                "MacAddress": "76:e4:11:af:61:c6",
+                "IPv4Address": "172.24.0.6/16",
+                "IPv6Address": ""
+            },
+            "17518d44e9409c5284b22cd73c7f1df01c344638b87cd8e3b271cc04ed21093b": {
+                "Name": "airflow_docker-airflow-triggerer-1",
+                "EndpointID": "eaadd952fa10413d3d0aa05de0e15ae4d3026b10505b0fdfd13e1dfc1f4a841f",
+                "MacAddress": "be:c0:52:9c:f9:0c",
+                "IPv4Address": "172.24.0.30/16",
+                "IPv6Address": ""
+            },
+            "2615075fb2003f6719fe8764d2924630a5211dca9ef93a237476341a5be177e5": {
+                "Name": "dbt_docker",
+                "EndpointID": "718572a41f5d7ac77c8c8ee541eca9bf083ae49725a9acb21a4eb51e1a03cf04",
+                "MacAddress": "ea:d2:69:b5:c0:99",
+                "IPv4Address": "172.24.0.20/16",
+                "IPv6Address": ""
+            },
+            "2da576fb51ffc26038938f1ae683c1c9bb02bc2a60214a4255a2eb2f48ef830e": {
+                "Name": "cadvisor_docker",
+                "EndpointID": "62a13665fdb7d76420502f6e2023ee05a960a39be8ba1cac665a85c2daa287bb",
+                "MacAddress": "7e:4a:a7:b5:10:46",
+                "IPv4Address": "172.24.0.8/16",
+                "IPv6Address": ""
+            },
+            "40c75f70cf9ae6548c9de4b901de45c0dbb9bd709e05f4b4bced359f4f560563": {
+                "Name": "kafka_ui_docker",
+                "EndpointID": "112c5b317b3d5d9bcaf2da572d47face2d99740c41615c999f2b494a7244f2bc",
+                "MacAddress": "46:55:bc:a2:96:ab",
+                "IPv4Address": "172.24.0.13/16",
+                "IPv6Address": ""
+            },
+            "4624b510433ebbfd995ad39f785132357fdc1c89ff8dad692ba47bbd9c532afd": {
+                "Name": "grafana_docker",
+                "EndpointID": "93203b7904b7881a619db28c82b873474161d207411cffa8888d6cab385d958d",
+                "MacAddress": "c6:46:8e:fc:1b:21",
+                "IPv4Address": "172.24.0.18/16",
+                "IPv6Address": ""
+            },
+            "4aa4e4b6724aa427b1004c21868fb78ef0bfd8f0dff4c6c337536daabddfeb75": {
+                "Name": "minio_docker",
+                "EndpointID": "90e0bc43cf5433a8e7cab3b6c1dcdedb4d1a73fc8882bf5da98bc36bd4a05a1f",
+                "MacAddress": "e2:c1:06:e6:dd:e4",
+                "IPv4Address": "172.24.0.22/16",
+                "IPv6Address": ""
+            },
+            "5d9ca8472332fb1202d15f19022e6438f790b5ead5d133af411cba8e2e6bcc89": {
+                "Name": "airflow_docker-airflow-worker-1",
+                "EndpointID": "9db9d8897ea219f1f26823ca448f845c36ba02196200fd52be28bdf5f24dab88",
+                "MacAddress": "ee:ee:4f:f0:08:af",
+                "IPv4Address": "172.24.0.9/16",
+                "IPv6Address": ""
+            },
+            "60e13834af04b6fe48a2daef1e9dc6d3e21945e6d6364d28aad2fb038da4c995": {
+                "Name": "node_exporter_docker",
+                "EndpointID": "53498a8dd34280870dfb4bbe48b41816d76422ab35e34566b6e41858084264da",
+                "MacAddress": "e2:8d:28:a1:44:7b",
+                "IPv4Address": "172.24.0.3/16",
+                "IPv6Address": ""
+            },
+            "65b8756beb30f24ade1d8636c803d39c408dee856fe316f46e0647bf459758f5": {
+                "Name": "redis_docker",
+                "EndpointID": "c4891249d5cb6c006e485ec44d8187235c168e3e27c79c4f3110730d36979526",
+                "MacAddress": "be:45:b2:5c:b8:ba",
+                "IPv4Address": "172.24.0.4/16",
+                "IPv6Address": ""
+            },
+            "6da21eeb830286c6e0e32e2daed9b54efbc1bc7658422e4540721ad307f203b1": {
+                "Name": "airflow_docker-airflow-apiserver-1",
+                "EndpointID": "3e4c12d5825314d0fa8310ba6223a95617500b3f26c5cc5405db661be251fec7",
+                "MacAddress": "f6:82:73:95:5e:90",
+                "IPv4Address": "172.24.0.28/16",
+                "IPv6Address": ""
+            },
+            "6ed706b24bf5a97ac84d3c101ac60594eca1462d4b20aa71908b8a223578ac8e": {
+                "Name": "airflow_docker-postgres-1",
+                "EndpointID": "cd7e51505de0ea30d6aec56926ca8f9e1a0983dbecdfa2b37f137935df8241a5",
+                "MacAddress": "9e:59:42:f7:a7:30",
+                "IPv4Address": "172.24.0.12/16",
+                "IPv6Address": ""
+            },
+            "73b877c1127fcdf69e1357df2caadae6465dc2bd0e11215188ab72fe921f9491": {
+                "Name": "open_webui_docker",
+                "EndpointID": "bf526b25f7d67ab6edab5d8a414a6a5a82bb8fca67c553fc8adc75e8b0e048db",
+                "MacAddress": "f2:79:e6:d3:3c:d8",
+                "IPv4Address": "172.24.0.24/16",
+                "IPv6Address": ""
+            },
+            "7541c774fa256df990796424a32d19d9769cdae98bdfeaaf0c773bed9a91fa69": {
+                "Name": "jupyterlab_docker",
+                "EndpointID": "f18241d76d9e6256abd5806f39d508537db24fa7a7e341b8c8aadca4b3cd2a05",
+                "MacAddress": "42:d0:1a:c9:4d:67",
+                "IPv4Address": "172.24.0.17/16",
+                "IPv6Address": ""
+            },
+            "79887e7d908622cf103dc73db58d43f17c6bcc765b5f77cfd5a30438ef199b2c": {
+                "Name": "trino_docker",
+                "EndpointID": "7b79d0bbcfab996a136e1fdb602f9f4cb8254815717e75354f84089a8ecab6b2",
+                "MacAddress": "b6:b7:42:6c:b5:9e",
+                "IPv4Address": "172.24.0.26/16",
+                "IPv6Address": ""
+            },
+            "8fa4f550f96ab391b6f5d9f2400d2a1c6ad7547c4e88f0810705271d6c74ab30": {
+                "Name": "nginx_docker",
+                "EndpointID": "cfecebfee6e1dbbfb1169e542700ceb27a42bf1d5405df9d7fcc7157540d5035",
+                "MacAddress": "9a:b2:f0:87:c4:97",
+                "IPv4Address": "172.24.0.32/16",
+                "IPv6Address": ""
+            },
+            "91bf0a645e4d39204199ab455b3fbe60f56d6ff4b40f71bc67468526ad777279": {
+                "Name": "azurite_docker",
+                "EndpointID": "852c42a5a854eb78a8f8335f7522d50579e2b947dfc1e1bda1034f9e7e55492e",
+                "MacAddress": "ce:73:98:d1:e2:ec",
+                "IPv4Address": "172.24.0.23/16",
+                "IPv6Address": ""
+            },
+            "95f1d8f84a4739c70e5cb0c79441e23b84941edd773d632ea6ffaf09f1aec168": {
+                "Name": "localstack_docker",
+                "EndpointID": "6d6f43947a13fcc06a1b1e713d290d8e448518313f9af149d8b7faf65d029df7",
+                "MacAddress": "72:8c:56:79:5d:8f",
+                "IPv4Address": "172.24.0.27/16",
+                "IPv6Address": ""
+            },
+            "9682bc4f28cf74a5a746a69ef202e298f65e819b7c70cae3ce52f4db8a6e5d6e": {
+                "Name": "flink-taskmanager",
+                "EndpointID": "ff4d480b92c7ac8de5f608b471bd01badcb8d0b404f2c24d8001ab0138cc89c2",
+                "MacAddress": "de:87:2b:07:f8:f7",
+                "IPv4Address": "172.24.0.33/16",
+                "IPv6Address": ""
+            },
+            "a607cf07337b03de0e0ffaac8e5a37dccd398bdca957cb40cdef5b28cf24d70a": {
+                "Name": "airflow_docker-airflow-scheduler-1",
+                "EndpointID": "68ce1985e0796709fc6bbc61233937c361b78c0af3687211b08786e2ddd4e9a9",
+                "MacAddress": "a6:2c:0b:1a:ef:10",
+                "IPv4Address": "172.24.0.31/16",
+                "IPv6Address": ""
+            },
+            "b4f3018542888fab0152318977371d0fb0a72e1857abb6eadf46b146cb5f5739": {
+                "Name": "postgres_docker",
+                "EndpointID": "f3dc43da6843531b4d0b697927fed3dba523edf67df6fcf83350655ab30f5065",
+                "MacAddress": "4e:99:11:9f:ed:80",
+                "IPv4Address": "172.24.0.19/16",
+                "IPv6Address": ""
+            },
+            "b60f9cd11e38f308a46d096210410794fda4ce1975cabdad988b5a9a8aaf8eda": {
+                "Name": "kafka_kraft_docker",
+                "EndpointID": "868921cb90fe89ffd6744d63ad3a38eb27043669b95c872d85b8b9b90224826c",
+                "MacAddress": "fa:49:12:35:48:82",
+                "IPv4Address": "172.24.0.15/16",
+                "IPv6Address": ""
+            },
+            "bbb7aa0c3da144340e59d28f153c9cd44bd3379bd31e36b5f83d6cd232e58f6b": {
+                "Name": "airflow_docker-airflow-dag-processor-1",
+                "EndpointID": "6b27f9dbca06f31b72f98c65f5155752a84e833b33d2b6d52bca3c387883269d",
+                "MacAddress": "a6:4b:e9:1c:15:43",
+                "IPv4Address": "172.24.0.29/16",
+                "IPv6Address": ""
+            },
+            "c6da1643e4e7f0092a8386cb1a1d08f17d12a40e5dc53cb85377199cac420bc5": {
+                "Name": "zookeeper_docker",
+                "EndpointID": "6cd1431da5942b271a0b08b1a19de23feb4d711c21611c308f5b9258dad771e3",
+                "MacAddress": "e6:b0:24:96:a7:87",
+                "IPv4Address": "172.24.0.14/16",
+                "IPv6Address": ""
+            },
+            "cafc48121e68d1aae1873c4e4a1ebd4e5214528d3c6d37028b55abfd7592b561": {
+                "Name": "prometheus_docker",
+                "EndpointID": "e6a443738c9ba4da7235eed54661048226fd28e558c1109f7ebaac4a818366c7",
+                "MacAddress": "82:7c:7d:fb:0b:7c",
+                "IPv4Address": "172.24.0.21/16",
+                "IPv6Address": ""
+            },
+            "d0082db875175a7a02cc984a68a53cac5700d5bef256c0c33435e2932030a79c": {
+                "Name": "postgres_exporter_docker",
+                "EndpointID": "80583181beb67c9b04ac5f3731a1cb0b6dd7093e15c5cefc5fa5742bcbd3e1b4",
+                "MacAddress": "8e:d3:37:bd:19:cb",
+                "IPv4Address": "172.24.0.2/16",
+                "IPv6Address": ""
+            },
+            "d48d2e7a8dc5fbe7d978beba8131911bdb1632e3004480ddb37cbd66186cac77": {
+                "Name": "kafka_exporter_docker",
+                "EndpointID": "6318f7acf77a3ff43079ca90a3f81d22bbb6534faf8c03fdc4f72f8762eeb7d3",
+                "MacAddress": "ae:c9:64:6b:5e:3b",
+                "IPv4Address": "172.24.0.5/16",
+                "IPv6Address": ""
+            },
+            "e62bc10107e982a259cabfc2a23f9c240993a4a9862d18d5fd35c421acba15c2": {
+                "Name": "kafka_zookeeper_docker",
+                "EndpointID": "4ac9bcbe604a65fe2173c8fee057c3a9914ff3c1eef1aef83cd9483db98477ca",
+                "MacAddress": "7a:f9:27:2f:4e:5b",
+                "IPv4Address": "172.24.0.11/16",
+                "IPv6Address": ""
+            },
+            "f98712254e7b879720867086bdc0a08ccad4e77c0bde4c60f26fab74fa11e0ae": {
+                "Name": "flink-jobmanager",
+                "EndpointID": "6fbbff97d47d2030ae322b659efb195e33d3af06eb40df3535d3d18682ac43e0",
+                "MacAddress": "5e:57:83:2e:f5:81",
+                "IPv4Address": "172.24.0.25/16",
+                "IPv6Address": ""
+            }
+        },
+        "Status": {
+            "IPAM": {
+                "Subnets": {
+                    "172.24.0.0/16": {
+                        "IPsInUse": 35,
+                        "DynamicIPsAvailable": 65501
+                    }
+                }
+            }
+        }
+    }
+]
+
+===== DOCKER VOLUMES =====
+DRIVER    VOLUME NAME
+local     0c8bb367f7b5e84d445ca43c39f3cccfe835df3f3f30e3714eb965eacbf49b9c
+local     7e3c551a5cc30561066f32fe622690503e01f75a272d858eb5770a7e0fd0aa1d
+local     9b0d569b5983100746e3a4665fef29d62e0e79b1e47e1004ba0b542c44993669
+local     09b077214154cb9e9968809280e10a8e87bea3987a123b18ae17c3ad2499d376
+local     24cb04efee13e04264aa97ed45545fdc53be60a313b201ec7c73eec69688556a
+local     43ba420f7fd39ccea4acfd36c7f3e5e47cd99338cdd219dbf6d179e5d9564ea0
+local     55b8a5b95e7f1a641b971d7f781baff3eb4b4470d3184de8bbffacff4ee771fc
+local     55e04cf207cd76c36a425ec9897737d04959c39320bd53bacfa55641652e5b7d
+local     73f005f1d0615439d84a087f449c7a89da6d6294c1fc9f420ed62584a40b4a00
+local     82c1c923d1b8c8279b8459656c5989e2b029f214c4ef156ff18a02e38c7114fd
+local     96efe0e4d62242136b8b6c5adb8641b09465e8c74e61fb9bfa2333bc90a1238d
+local     203ef0e03531501d08c43f0de40c373dd71bd7b94633f0e116d65b444effcf03
+local     267ff16afa58fd28334ebe56167c0c9b9155da1d1e2a70422932502129a9b2e8
+local     369ff0901f9bf42d8dcf4736a94006a4985c6600ab0ce4754ab889cbb1f50326
+local     544fa6491bff39abc19cb0cc445033e34ec83013209947176e311c68f6a7cd7c
+local     978e37d8d2601c8f17cb2ddecb3ebb5853c6ba94c5e06d1cf4ec563b9c2905da
+local     ai_data_incident_investigator_ai_incident_investigator_postgres_data
+local     airflow_docker_postgres-db-volume
+local     azurite_docker_data
+local     b5c15adadbe53a80438c297c1cccfc233717de082980946e8208019850f94164
+local     b64079fc86b2a4bb49df7b91cb4b18ec6d8d373cdfe3adff2d443b21c9dd466e
+local     bd579d7f6074145a96668d7c4c63fbe6f85d9047f559ca5cb68c18791336fc99
+local     bd3544646b551c8dafd2c581ecb91abbd9b36a6bd4393e245bf4dfa6c561ea3e
+local     c46a33c7b82cc62fc12f78a8965b19b37f2a22267367b5d770751c9380dac27d
+local     c73a3a983e6dc47f7c1986ec042e9de8a16a7e4bd9a9d80c95ba0337baf0f88c
+local     ca935734bb085e35c851252ce78b13b0ad47cf98c8925dc3f91dbdbaca7a8f27
+local     cfb6ad2d2d648ce0bc132bb9f6b335030e3b587cec7829b0eacc6e60832179c1
+local     d76c17acb3a779c27eebd2095c30477bd8c39dc2eed40777eb28c1d08797b36c
+local     d01984b8f52e3ba93ca5f819c0d2bc432c6a67001c4bc59134c75415924b6767
+local     d9940e3108c5b16151c5765a8982847fa9a64781a9b9a946b4b7c49d74c214f1
+local     eef7c5bd2a60c8495eb21ceba2ac7bfe5289d59d70a16bb32848196a5d47d130
+local     f800868e5b0c0ef87dc5ad4bea9dad16c8f0c357dafadffd28d8877842607f6b
+local     fdd273ff78ef61d5f1e12f8dfae9bb62bb55174f857a4274de72efb9460b12dc
+local     fe743596239e65e91f5ec2d46576017f6c15f96fc1277a1438f89860486228ef
+local     grafana_docker_data
+local     kafka_kraft_docker_data
+local     kafka_zookeeper_docker_data
+local     localstack_docker_data
+local     minio_docker_data
+local     postgres_docker_data
+local     prometheus_docker_data
+local     redis_docker_data
+
+===== POSTGRES CONFIGURATION =====
+[
+    {
+        "Id": "b4f3018542888fab0152318977371d0fb0a72e1857abb6eadf46b146cb5f5739",
+        "Created": "2026-06-20T06:48:19.31457431Z",
+        "Path": "docker-entrypoint.sh",
+        "Args": [
+            "postgres"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 1085,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-11-06T11:35:06.363618945Z",
+            "FinishedAt": "2026-10-26T15:02:02.871995988Z"
+        },
+        "Image": "sha256:2203e6282d9e7de7c24d7da234e2a744fb325df366a3fd8ed940e8abbee39527",
+        "ResolvConfPath": "/var/lib/docker/containers/b4f3018542888fab0152318977371d0fb0a72e1857abb6eadf46b146cb5f5739/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/b4f3018542888fab0152318977371d0fb0a72e1857abb6eadf46b146cb5f5739/hostname",
+        "HostsPath": "/var/lib/docker/containers/b4f3018542888fab0152318977371d0fb0a72e1857abb6eadf46b146cb5f5739/hosts",
+        "LogPath": "/var/lib/docker/containers/b4f3018542888fab0152318977371d0fb0a72e1857abb6eadf46b146cb5f5739/b4f3018542888fab0152318977371d0fb0a72e1857abb6eadf46b146cb5f5739-json.log",
+        "Name": "/postgres_docker",
+        "RestartCount": 0,
+        "Driver": "overlayfs",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": [
+                "postgres_docker_data:/var/lib/postgresql/data:rw"
+            ],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "dockerlab_network",
+            "PortBindings": {
+                "5432/tcp": [
+                    {
+                        "HostIp": "",
+                        "HostPort": "5433"
+                    }
+                ]
+            },
+            "RestartPolicy": {
+                "Name": "unless-stopped",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": [],
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": [],
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "Storage": {
+            "RootFS": {
+                "Snapshot": {
+                    "Name": "overlayfs"
+                }
+            }
+        },
+        "Mounts": [
+            {
+                "Type": "volume",
+                "Name": "postgres_docker_data",
+                "Source": "/var/lib/docker/volumes/postgres_docker_data/_data",
+                "Destination": "/var/lib/postgresql/data",
+                "Driver": "local",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": ""
+            }
+        ],
+        "Config": {
+            "Hostname": "b4f301854288",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "ExposedPorts": {
+                "5432/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "POSTGRES_PORT=5433",
+                "POSTGRES_PASSWORD=postgres_docker_password",
+                "TZ=Asia/Kolkata",
+                "POSTGRES_DB=postgres_docker_db",
+                "POSTGRES_USER=postgres_docker_user",
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/lib/postgresql/17/bin",
+                "GOSU_VERSION=1.19",
+                "LANG=en_US.utf8",
+                "PG_MAJOR=17",
+                "PG_VERSION=17.10-1.pgdg13+1",
+                "PGDATA=/var/lib/postgresql/data"
+            ],
+            "Cmd": [
+                "postgres"
+            ],
+            "Image": "postgres:17",
+            "Volumes": {
+                "/var/lib/postgresql/data": {}
+            },
+            "WorkingDir": "",
+            "Entrypoint": [
+                "docker-entrypoint.sh"
+            ],
+            "Labels": {
+                "com.docker.compose.config-hash": "80b6906ece55bf3630f64a5656dd9aa3b8fd6725f427dce4b7a53cef20de7ac3",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.depends_on": "",
+                "com.docker.compose.image": "sha256:2203e6282d9e7de7c24d7da234e2a744fb325df366a3fd8ed940e8abbee39527",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "postgres_docker",
+                "com.docker.compose.project.config_files": "F:\\DockerLab\\databases\\postgres_docker\\compose.yaml",
+                "com.docker.compose.project.working_dir": "F:\\DockerLab\\databases\\postgres_docker",
+                "com.docker.compose.service": "postgres_docker",
+                "com.docker.compose.version": "5.1.4"
+            },
+            "StopSignal": "SIGINT",
+            "StopTimeout": 1
+        },
+        "NetworkSettings": {
+            "SandboxID": "5dac7a531a2be2168ca0067f51f523afb1283aa529fbf8f37d88a0715f3043a0",
+            "SandboxKey": "/var/run/docker/netns/5dac7a531a2b",
+            "Ports": {
+                "5432/tcp": [
+                    {
+                        "HostIp": "0.0.0.0",
+                        "HostPort": "5433"
+                    },
+                    {
+                        "HostIp": "::",
+                        "HostPort": "5433"
+                    }
+                ]
+            },
+            "Networks": {
+                "dockerlab_network": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "postgres_docker",
+                        "postgres_docker"
+                    ],
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "5d1912a317a429f87f43682e0663b96b54b5594560c941ee235c176b338090a8",
+                    "EndpointID": "f3dc43da6843531b4d0b697927fed3dba523edf67df6fcf83350655ab30f5065",
+                    "Gateway": "172.24.0.1",
+                    "IPAddress": "172.24.0.19",
+                    "MacAddress": "4e:99:11:9f:ed:80",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "postgres_docker",
+                        "b4f301854288"
+                    ]
+                }
+            }
+        },
+        "ImageManifestDescriptor": {
+            "mediaType": "application/vnd.oci.image.manifest.v1+json",
+            "digest": "sha256:0e91a106a4da991ecd9b2a511eb9a62cc106293a517deed33856ceda5ad429d7",
+            "size": 3628,
+            "annotations": {
+                "com.docker.official-images.bashbrew.arch": "amd64",
+                "org.opencontainers.image.base.digest": "sha256:1275c5673a6135ff07b289ddafe4e2270dceb08eda14c0c69bb1b93ee25a9416",
+                "org.opencontainers.image.base.name": "debian:trixie-slim",
+                "org.opencontainers.image.created": "2026-06-11T00:34:35Z",
+                "org.opencontainers.image.revision": "f7201e8ed65eb83a8a9b33ba6669f23cf814bf5d",
+                "org.opencontainers.image.source": "https://github.com/docker-library/postgres.git#f7201e8ed65eb83a8a9b33ba6669f23cf814bf5d:17/trixie",
+                "org.opencontainers.image.url": "https://hub.docker.com/_/postgres",
+                "org.opencontainers.image.version": "17.10"
+            },
+            "platform": {
+                "architecture": "amd64",
+                "os": "linux"
+            }
+        }
+    }
+]
+
+===== KAFKA CONFIGURATION =====
+[
+    {
+        "Id": "b60f9cd11e38f308a46d096210410794fda4ce1975cabdad988b5a9a8aaf8eda",
+        "Created": "2026-11-06T18:27:57.048455943Z",
+        "Path": "/__cacert_entrypoint.sh",
+        "Args": [
+            "/etc/kafka/docker/run"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 20868,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-11-06T18:27:58.915286682Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:5cc2a2fd93fa2687b44015eee04fb2c3edd9e526bd64bf8bec5ff1e268772e0e",
+        "ResolvConfPath": "/var/lib/docker/containers/b60f9cd11e38f308a46d096210410794fda4ce1975cabdad988b5a9a8aaf8eda/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/b60f9cd11e38f308a46d096210410794fda4ce1975cabdad988b5a9a8aaf8eda/hostname",
+        "HostsPath": "/var/lib/docker/containers/b60f9cd11e38f308a46d096210410794fda4ce1975cabdad988b5a9a8aaf8eda/hosts",
+        "LogPath": "",
+        "Name": "/kafka_kraft_docker",
+        "RestartCount": 0,
+        "Driver": "overlayfs",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": [
+                "kafka_kraft_docker_data:/var/lib/kafka/data:rw"
+            ],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "local",
+                "Config": {}
+            },
+            "NetworkMode": "dockerlab_network",
+            "PortBindings": {
+                "9092/tcp": [
+                    {
+                        "HostIp": "",
+                        "HostPort": "9092"
+                    }
+                ]
+            },
+            "RestartPolicy": {
+                "Name": "unless-stopped",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": [],
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "Mounts": [
+                {
+                    "Type": "volume",
+                    "Source": "d01984b8f52e3ba93ca5f819c0d2bc432c6a67001c4bc59134c75415924b6767",
+                    "Target": "/etc/kafka/secrets"
+                },
+                {
+                    "Type": "volume",
+                    "Source": "55b8a5b95e7f1a641b971d7f781baff3eb4b4470d3184de8bbffacff4ee771fc",
+                    "Target": "/mnt/shared/config"
+                }
+            ],
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "Storage": {
+            "RootFS": {
+                "Snapshot": {
+                    "Name": "overlayfs"
+                }
+            }
+        },
+        "Mounts": [
+            {
+                "Type": "volume",
+                "Name": "d01984b8f52e3ba93ca5f819c0d2bc432c6a67001c4bc59134c75415924b6767",
+                "Source": "/var/lib/docker/volumes/d01984b8f52e3ba93ca5f819c0d2bc432c6a67001c4bc59134c75415924b6767/_data",
+                "Destination": "/etc/kafka/secrets",
+                "Driver": "local",
+                "Mode": "z",
+                "RW": true,
+                "Propagation": ""
+            },
+            {
+                "Type": "volume",
+                "Name": "55b8a5b95e7f1a641b971d7f781baff3eb4b4470d3184de8bbffacff4ee771fc",
+                "Source": "/var/lib/docker/volumes/55b8a5b95e7f1a641b971d7f781baff3eb4b4470d3184de8bbffacff4ee771fc/_data",
+                "Destination": "/mnt/shared/config",
+                "Driver": "local",
+                "Mode": "z",
+                "RW": true,
+                "Propagation": ""
+            },
+            {
+                "Type": "volume",
+                "Name": "kafka_kraft_docker_data",
+                "Source": "/var/lib/docker/volumes/kafka_kraft_docker_data/_data",
+                "Destination": "/var/lib/kafka/data",
+                "Driver": "local",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": ""
+            }
+        ],
+        "Config": {
+            "Hostname": "b60f9cd11e38",
+            "Domainname": "",
+            "User": "appuser",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "ExposedPorts": {
+                "9092/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "KAFKA_CONTROLLER_LISTENER_NAMES=CONTROLLER",
+                "KAFKA_INTER_BROKER_LISTENER_NAME=INTERNAL",
+                "KAFKA_LOG_DIRS=/var/lib/kafka/data",
+                "KAFKA_NODE_ID=1",
+                "KAFKA_LISTENERS=INTERNAL://:29092,EXTERNAL://:9092,CONTROLLER://:9093",
+                "KAFKA_CLUSTER_ID=kraft_docker_cluster",
+                "KAFKA_BROKER_PORT=9092",
+                "KAFKA_LISTENER_SECURITY_PROTOCOL_MAP=CONTROLLER:PLAINTEXT,INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT",
+                "KAFKA_ADVERTISED_LISTENERS=INTERNAL://kafka_kraft_docker:29092,EXTERNAL://localhost:9092",
+                "KAFKA_PROCESS_ROLES=broker,controller",
+                "KAFKA_CONTROLLER_PORT=9093",
+                "KAFKA_CONTROLLER_QUORUM_VOTERS=1@kafka_kraft_docker:9093",
+                "TZ=Asia/Kolkata",
+                "PATH=/opt/java/openjdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "JAVA_HOME=/opt/java/openjdk",
+                "LANG=en_US.UTF-8",
+                "LANGUAGE=en_US:en",
+                "LC_ALL=en_US.UTF-8",
+                "JAVA_VERSION=jdk-21.0.10+7"
+            ],
+            "Cmd": [
+                "/etc/kafka/docker/run"
+            ],
+            "Image": "apache/kafka:4.1.2",
+            "Volumes": {
+                "/etc/kafka/secrets": {},
+                "/mnt/shared/config": {},
+                "/var/lib/kafka/data": {}
+            },
+            "WorkingDir": "/",
+            "Entrypoint": [
+                "/__cacert_entrypoint.sh"
+            ],
+            "Labels": {
+                "com.docker.compose.config-hash": "30ee0857c095f4c5b61cfb673a4cb5c44746daabeb795e436d86b0d90ed984b2",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.depends_on": "",
+                "com.docker.compose.image": "sha256:d50ab7b5df612b3c303f9d8afe8fee59626a5de798addfd626fe1924e3205965",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "kafka_kraft_docker",
+                "com.docker.compose.project.config_files": "F:\\DockerLab\\messaging\\kafka_kraft_docker\\compose.yaml",
+                "com.docker.compose.project.working_dir": "F:\\DockerLab\\messaging\\kafka_kraft_docker",
+                "com.docker.compose.replace": "kafka_kraft_docker",
+                "com.docker.compose.service": "kafka_kraft_docker",
+                "com.docker.compose.version": "5.6.0",
+                "maintainer": "Apache Kafka",
+                "org.label-schema.build-date": "2026-02-25",
+                "org.label-schema.description": "Apache Kafka",
+                "org.label-schema.name": "kafka",
+                "org.label-schema.vcs-url": "https://github.com/apache/kafka"
+            }
+        },
+        "NetworkSettings": {
+            "SandboxID": "c28843a8d158023cbdc695f6a8e0271836c3c1725ffa5ecbf8598ab3bf62a3b3",
+            "SandboxKey": "/var/run/docker/netns/c28843a8d158",
+            "Ports": {
+                "9092/tcp": [
+                    {
+                        "HostIp": "0.0.0.0",
+                        "HostPort": "9092"
+                    },
+                    {
+                        "HostIp": "::",
+                        "HostPort": "9092"
+                    }
+                ]
+            },
+            "Networks": {
+                "dockerlab_network": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "kafka_kraft_docker",
+                        "kafka_kraft_docker"
+                    ],
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "5d1912a317a429f87f43682e0663b96b54b5594560c941ee235c176b338090a8",
+                    "EndpointID": "868921cb90fe89ffd6744d63ad3a38eb27043669b95c872d85b8b9b90224826c",
+                    "Gateway": "172.24.0.1",
+                    "IPAddress": "172.24.0.15",
+                    "MacAddress": "fa:49:12:35:48:82",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "kafka_kraft_docker",
+                        "b60f9cd11e38"
+                    ]
+                }
+            }
+        },
+        "ImageManifestDescriptor": {
+            "mediaType": "application/vnd.oci.image.manifest.v1+json",
+            "digest": "sha256:d50ab7b5df612b3c303f9d8afe8fee59626a5de798addfd626fe1924e3205965",
+            "size": 2390,
+            "platform": {
+                "architecture": "amd64",
+                "os": "linux"
+            }
+        }
+    }
+]
+
+===== FLINK CONFIGURATION =====
+[
+    {
+        "Id": "f98712254e7b879720867086bdc0a08ccad4e77c0bde4c60f26fab74fa11e0ae",
+        "Created": "2026-11-07T07:16:36.582684239Z",
+        "Path": "/docker-entrypoint.sh",
+        "Args": [
+            "jobmanager"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 17020,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-11-07T07:29:16.270502736Z",
+            "FinishedAt": "2026-11-07T07:29:06.468511429Z"
+        },
+        "Image": "sha256:d8de30c4977d46c0a53e3ed6f27634ff3ae5bbcdd3975d37142d4308ab1aaa51",
+        "ResolvConfPath": "/var/lib/docker/containers/f98712254e7b879720867086bdc0a08ccad4e77c0bde4c60f26fab74fa11e0ae/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/f98712254e7b879720867086bdc0a08ccad4e77c0bde4c60f26fab74fa11e0ae/hostname",
+        "HostsPath": "/var/lib/docker/containers/f98712254e7b879720867086bdc0a08ccad4e77c0bde4c60f26fab74fa11e0ae/hosts",
+        "LogPath": "",
+        "Name": "/flink-jobmanager",
+        "RestartCount": 0,
+        "Driver": "overlayfs",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": [
+                "F:\\DockerLab\\processing\\flink_docker\\jobs:/opt/flink/usrlib:rw"
+            ],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "local",
+                "Config": {}
+            },
+            "NetworkMode": "dockerlab_network",
+            "PortBindings": {
+                "8081/tcp": [
+                    {
+                        "HostIp": "",
+                        "HostPort": "18081"
+                    }
+                ]
+            },
+            "RestartPolicy": {
+                "Name": "unless-stopped",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": [],
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "Storage": {
+            "RootFS": {
+                "Snapshot": {
+                    "Name": "overlayfs"
+                }
+            }
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "F:\\DockerLab\\processing\\flink_docker\\jobs",
+                "Destination": "/opt/flink/usrlib",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": "rprivate"
+            }
+        ],
+        "Config": {
+            "Hostname": "f98712254e7b",
+            "Domainname": "",
+            "User": "flink",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "ExposedPorts": {
+                "6123/tcp": {},
+                "8081/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "FLINK_PROPERTIES=\njobmanager.rpc.address: jobmanager\njobmanager.memory.process.size: 1024m\n",
+                "PATH=/opt/pyflink-venv/bin:/opt/flink/bin:/opt/java/openjdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "JAVA_HOME=/opt/java/openjdk",
+                "LANG=en_US.UTF-8",
+                "LANGUAGE=en_US:en",
+                "LC_ALL=en_US.UTF-8",
+                "JAVA_VERSION=jdk-17.0.21+9",
+                "FLINK_TGZ_URL=https://dlcdn.apache.org/flink/flink-2.2.1/flink-2.2.1-bin-scala_2.12.tgz",
+                "FLINK_ASC_URL=https://downloads.apache.org/flink/flink-2.2.1/flink-2.2.1-bin-scala_2.12.tgz.asc",
+                "GPG_KEY=F7529FAE24811A5C0DF3CA741596BBF0726835D8",
+                "CHECK_GPG=true",
+                "FLINK_HOME=/opt/flink",
+                "PYFLINK_CLIENT_EXECUTABLE=/opt/pyflink-venv/bin/python"
+            ],
+            "Cmd": [
+                "jobmanager"
+            ],
+            "Image": "apache-flink:2.2.1",
+            "Volumes": null,
+            "WorkingDir": "/opt/flink",
+            "Entrypoint": [
+                "/docker-entrypoint.sh"
+            ],
+            "Labels": {
+                "com.docker.compose.config-hash": "fa11938c58a9470297eb2f4e1ad2fa200e0955c76cfb449c079be8c11f2effac",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.depends_on": "",
+                "com.docker.compose.image": "sha256:d9bee44f6441b885b69d8280b2965964f971f1ddc723118bc703687193ab3c26",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "flink_shared",
+                "com.docker.compose.project.config_files": "F:\\DockerLab\\processing\\flink_docker\\docker-compose.yml",
+                "com.docker.compose.project.working_dir": "F:\\DockerLab\\processing\\flink_docker",
+                "com.docker.compose.service": "jobmanager",
+                "com.docker.compose.version": "5.6.0",
+                "org.opencontainers.image.version": "24.04"
+            }
+        },
+        "NetworkSettings": {
+            "SandboxID": "13dfc95cc075cbee21e85dfbde376894c798efb1904a83430b664b33ffbaa592",
+            "SandboxKey": "/var/run/docker/netns/13dfc95cc075",
+            "Ports": {
+                "8081/tcp": [
+                    {
+                        "HostIp": "0.0.0.0",
+                        "HostPort": "18081"
+                    },
+                    {
+                        "HostIp": "::",
+                        "HostPort": "18081"
+                    }
+                ]
+            },
+            "Networks": {
+                "dockerlab_network": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "flink-jobmanager",
+                        "jobmanager"
+                    ],
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "5d1912a317a429f87f43682e0663b96b54b5594560c941ee235c176b338090a8",
+                    "EndpointID": "6fbbff97d47d2030ae322b659efb195e33d3af06eb40df3535d3d18682ac43e0",
+                    "Gateway": "172.24.0.1",
+                    "IPAddress": "172.24.0.25",
+                    "MacAddress": "5e:57:83:2e:f5:81",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "flink-jobmanager",
+                        "jobmanager",
+                        "f98712254e7b"
+                    ]
+                }
+            }
+        },
+        "ImageManifestDescriptor": {
+            "mediaType": "application/vnd.oci.image.manifest.v1+json",
+            "digest": "sha256:d9bee44f6441b885b69d8280b2965964f971f1ddc723118bc703687193ab3c26",
+            "size": 2585,
+            "platform": {
+                "architecture": "amd64",
+                "os": "linux"
+            }
+        }
+    },
+    {
+        "Id": "9682bc4f28cf74a5a746a69ef202e298f65e819b7c70cae3ce52f4db8a6e5d6e",
+        "Created": "2026-11-07T07:16:36.82051528Z",
+        "Path": "/docker-entrypoint.sh",
+        "Args": [
+            "taskmanager"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 17125,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-11-07T07:29:16.754357614Z",
+            "FinishedAt": "2026-11-07T07:29:05.543890279Z"
+        },
+        "Image": "sha256:d8de30c4977d46c0a53e3ed6f27634ff3ae5bbcdd3975d37142d4308ab1aaa51",
+        "ResolvConfPath": "/var/lib/docker/containers/9682bc4f28cf74a5a746a69ef202e298f65e819b7c70cae3ce52f4db8a6e5d6e/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/9682bc4f28cf74a5a746a69ef202e298f65e819b7c70cae3ce52f4db8a6e5d6e/hostname",
+        "HostsPath": "/var/lib/docker/containers/9682bc4f28cf74a5a746a69ef202e298f65e819b7c70cae3ce52f4db8a6e5d6e/hosts",
+        "LogPath": "",
+        "Name": "/flink-taskmanager",
+        "RestartCount": 0,
+        "Driver": "overlayfs",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": [
+                "F:\\DockerLab\\processing\\flink_docker\\jobs:/opt/flink/usrlib:rw"
+            ],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "local",
+                "Config": {}
+            },
+            "NetworkMode": "dockerlab_network",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "unless-stopped",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": [],
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "Storage": {
+            "RootFS": {
+                "Snapshot": {
+                    "Name": "overlayfs"
+                }
+            }
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "F:\\DockerLab\\processing\\flink_docker\\jobs",
+                "Destination": "/opt/flink/usrlib",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": "rprivate"
+            }
+        ],
+        "Config": {
+            "Hostname": "9682bc4f28cf",
+            "Domainname": "",
+            "User": "flink",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "ExposedPorts": {
+                "6123/tcp": {},
+                "8081/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "FLINK_PROPERTIES=\njobmanager.rpc.address: jobmanager\ntaskmanager.numberOfTaskSlots: 2\ntaskmanager.memory.process.size: 2048m\n",
+                "PATH=/opt/pyflink-venv/bin:/opt/flink/bin:/opt/java/openjdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "JAVA_HOME=/opt/java/openjdk",
+                "LANG=en_US.UTF-8",
+                "LANGUAGE=en_US:en",
+                "LC_ALL=en_US.UTF-8",
+                "JAVA_VERSION=jdk-17.0.21+9",
+                "FLINK_TGZ_URL=https://dlcdn.apache.org/flink/flink-2.2.1/flink-2.2.1-bin-scala_2.12.tgz",
+                "FLINK_ASC_URL=https://downloads.apache.org/flink/flink-2.2.1/flink-2.2.1-bin-scala_2.12.tgz.asc",
+                "GPG_KEY=F7529FAE24811A5C0DF3CA741596BBF0726835D8",
+                "CHECK_GPG=true",
+                "FLINK_HOME=/opt/flink",
+                "PYFLINK_CLIENT_EXECUTABLE=/opt/pyflink-venv/bin/python"
+            ],
+            "Cmd": [
+                "taskmanager"
+            ],
+            "Image": "apache-flink:2.2.1",
+            "Volumes": null,
+            "WorkingDir": "/opt/flink",
+            "Entrypoint": [
+                "/docker-entrypoint.sh"
+            ],
+            "Labels": {
+                "com.docker.compose.config-hash": "ec83726853ae7050d22d9330cf5783073a5b9116137259d2b94996a7aafe3663",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.depends_on": "jobmanager:service_started:false",
+                "com.docker.compose.image": "sha256:d9bee44f6441b885b69d8280b2965964f971f1ddc723118bc703687193ab3c26",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "flink_shared",
+                "com.docker.compose.project.config_files": "F:\\DockerLab\\processing\\flink_docker\\docker-compose.yml",
+                "com.docker.compose.project.working_dir": "F:\\DockerLab\\processing\\flink_docker",
+                "com.docker.compose.service": "taskmanager",
+                "com.docker.compose.version": "5.6.0",
+                "org.opencontainers.image.version": "24.04"
+            }
+        },
+        "NetworkSettings": {
+            "SandboxID": "00dcc31e72b7867b7d7fe66d348a04de054289ee2cc5b50c557d221b9a35d84e",
+            "SandboxKey": "/var/run/docker/netns/00dcc31e72b7",
+            "Ports": {
+                "6123/tcp": null,
+                "8081/tcp": null
+            },
+            "Networks": {
+                "dockerlab_network": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "flink-taskmanager",
+                        "taskmanager"
+                    ],
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "5d1912a317a429f87f43682e0663b96b54b5594560c941ee235c176b338090a8",
+                    "EndpointID": "ff4d480b92c7ac8de5f608b471bd01badcb8d0b404f2c24d8001ab0138cc89c2",
+                    "Gateway": "172.24.0.1",
+                    "IPAddress": "172.24.0.33",
+                    "MacAddress": "de:87:2b:07:f8:f7",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "flink-taskmanager",
+                        "taskmanager",
+                        "9682bc4f28cf"
+                    ]
+                }
+            }
+        },
+        "ImageManifestDescriptor": {
+            "mediaType": "application/vnd.oci.image.manifest.v1+json",
+            "digest": "sha256:d9bee44f6441b885b69d8280b2965964f971f1ddc723118bc703687193ab3c26",
+            "size": 2585,
+            "platform": {
+                "architecture": "amd64",
+                "os": "linux"
+            }
+        }
+    }
+]
+
+===== DOCKERLAB DIRECTORY STRUCTURE =====
+Folder PATH listing for volume New Volume
+Volume serial number is 742B-032E
+F:.
++---ai
+|   +---chromadb_docker
+|   +---jupyterlab_docker
+|   |   +---data
+|   |   +---notebooks
+|   |   +---requirements
+|   |   \---scripts
+|   +---mlflow_docker
+|   |   +---artifacts
+|   |   +---logs
+|   |   \---scripts
+|   +---models
+|   +---ollama_docker
+|   |   +---data
+|   |   \---models
+|   |       +---cache
+|   |       \---models
+|   |           +---blobs
+|   |           \---manifests
+|   +---open_webui_docker
+|   |   \---data
+|   |       +---cache
+|   |       |   +---audio
+|   |       |   |   \---speech
+|   |       |   +---embedding
+|   |       |   |   \---models
+|   |       |   |       +---.locks
+|   |       |   |       |   \---models--sentence-transformers--all-MiniLM-L6-v2
+|   |       |   |       +---models--sentence-transformers--all-MiniLM-L6-v2
+|   |       |   |       |   +---blobs
+|   |       |   |       |   +---refs
+|   |       |   |       |   \---snapshots
+|   |       |   |       |       \---1110a243fdf4706b3f48f1d95db1a4f5529b4d41
+|   |       |   |       |           +---1_Pooling
+|   |       |   |       |           +---onnx
+|   |       |   |       |           \---openvino
+|   |       |   |       \---xet
+|   |       |   |           +---https___cas_serv-tGqkUaZf_CBPHQ6h
+|   |       |   |           |   \---staging
+|   |       |   |           \---logs
+|   |       |   \---image
+|   |       |       \---generations
+|   |       +---uploads
+|   |       \---vector_db
+|   \---qdrant_docker
++---analytics
+|   \---superset_docker
+|       +---docker
+|       +---init
+|       \---superset
+|           +---.claude
+|           |   +---commands
+|           |   \---projects
+|           |       \---js-to-ts
+|           +---.cursor
+|           |   \---rules
+|           +---.devcontainer
+|           |   +---default
+|           |   \---with-mcp
+|           +---.github
+|           |   +---actions
+|           |   |   +---cached-dependencies
+|           |   |   +---change-detector
+|           |   |   +---chart-releaser-action
+|           |   |   +---chart-testing-action
+|           |   |   +---comment-on-pr
+|           |   |   +---file-changes-action
+|           |   |   +---github-action-push-to-another-repository
+|           |   |   +---latest-tag
+|           |   |   +---pr-lint-action
+|           |   |   +---setup-backend
+|           |   |   +---setup-docker
+|           |   |   \---setup-supersetbot
+|           |   +---ISSUE_TEMPLATE
+|           |   \---workflows
+|           +---ASF
+|           +---CHANGELOG
+|           +---docker
+|           |   +---docker-entrypoint-initdb.d
+|           |   +---entrypoints
+|           |   +---nginx
+|           |   |   \---templates
+|           |   +---pythonpath_dev
+|           |   \---superset-websocket
+|           +---docs
+|           |   +---.claude
+|           |   +---admin_docs
+|           |   |   +---configuration
+|           |   |   +---installation
+|           |   |   \---security
+|           |   +---admin_docs_versioned_docs
+|           |   |   \---version-6.1.0
+|           |   |       +---configuration
+|           |   |       +---installation
+|           |   |       +---security
+|           |   |       \---_versioned_data
+|           |   |           +---data
+|           |   |           \---static
+|           |   +---admin_docs_versioned_sidebars
+|           |   +---components
+|           |   |   +---chart-components
+|           |   |   +---layout-components
+|           |   |   \---ui-components
+|           |   +---components_versioned_docs
+|           |   |   \---version-6.1.0
+|           |   |       +---chart-components
+|           |   |       +---layout-components
+|           |   |       \---ui-components
+|           |   +---components_versioned_sidebars
+|           |   +---data
+|           |   +---developer_docs
+|           |   |   +---components
+|           |   |   |   +---design-system
+|           |   |   |   \---ui
+|           |   |   +---contributing
+|           |   |   +---extensions
+|           |   |   |   +---components
+|           |   |   |   \---extension-points
+|           |   |   +---guidelines
+|           |   |   |   +---backend
+|           |   |   |   \---frontend
+|           |   |   \---testing
+|           |   +---developer_docs_versioned_docs
+|           |   |   \---version-6.1.0
+|           |   |       +---api
+|           |   |       |   \---schemas
+|           |   |       +---components
+|           |   |       |   +---design-system
+|           |   |       |   +---extension
+|           |   |       |   \---ui
+|           |   |       +---contributing
+|           |   |       +---extensions
+|           |   |       |   +---components
+|           |   |       |   \---extension-points
+|           |   |       +---guidelines
+|           |   |       |   +---backend
+|           |   |       |   \---frontend
+|           |   |       +---testing
+|           |   |       \---_versioned_data
+|           |   |           \---static
+|           |   |               \---data
+|           |   +---developer_docs_versioned_sidebars
+|           |   +---docs
+|           |   |   +---security
+|           |   |   \---using-superset
+|           |   +---i18n
+|           |   |   \---en
+|           |   |       +---docusaurus-plugin-content-blog
+|           |   |       +---docusaurus-plugin-content-docs
+|           |   |       \---docusaurus-theme-classic
+|           |   +---plugins
+|           |   +---scripts
+|           |   +---sip
+|           |   +---src
+|           |   |   +---components
+|           |   |   |   +---databases
+|           |   |   |   \---ui-components
+|           |   |   +---data
+|           |   |   +---fonts
+|           |   |   +---pages
+|           |   |   +---resources
+|           |   |   +---shims
+|           |   |   +---styles
+|           |   |   +---theme
+|           |   |   |   +---Admonition
+|           |   |   |   +---ApiExplorer
+|           |   |   |   |   \---MethodEndpoint
+|           |   |   |   +---DocVersionBadge
+|           |   |   |   +---NavbarItem
+|           |   |   |   +---Playground
+|           |   |   |   |   \---Preview
+|           |   |   |   \---ReactLiveScope
+|           |   |   \---types
+|           |   |       \---apache-superset-core
+|           |   +---static
+|           |   |   +---img
+|           |   |   |   +---community
+|           |   |   |   +---custom-plugins
+|           |   |   |   +---databases
+|           |   |   |   +---extensions
+|           |   |   |   +---features
+|           |   |   |   +---logos
+|           |   |   |   +---screenshots
+|           |   |   |   \---tutorial
+|           |   |   \---resources
+|           |   +---user_docs_versioned_docs
+|           |   |   +---version-6.0.0
+|           |   |   |   +---configuration
+|           |   |   |   +---contributing
+|           |   |   |   +---installation
+|           |   |   |   +---security
+|           |   |   |   \---using-superset
+|           |   |   \---version-6.1.0
+|           |   |       +---databases
+|           |   |       |   \---supported
+|           |   |       +---security
+|           |   |       +---using-superset
+|           |   |       \---_versioned_data
+|           |   |           \---src
+|           |   |               \---data
+|           |   \---user_docs_versioned_sidebars
+|           +---helm
+|           |   \---superset
+|           |       \---templates
+|           +---RELEASING
+|           |   +---email_templates
+|           |   +---release-notes-0-38
+|           |   |   \---media
+|           |   +---release-notes-1-0
+|           |   |   \---media
+|           |   +---release-notes-1-1
+|           |   |   \---media
+|           |   +---release-notes-1-2
+|           |   |   \---media
+|           |   +---release-notes-1-3
+|           |   |   \---media
+|           |   +---release-notes-1-4
+|           |   |   \---media
+|           |   +---release-notes-1-5
+|           |   |   \---media
+|           |   +---release-notes-2-0
+|           |   +---release-notes-3-1
+|           |   |   \---media
+|           |   +---release-notes-4-0
+|           |   |   \---media
+|           |   \---release-notes-4-1
+|           |       \---media
+|           +---requirements
+|           +---RESOURCES
+|           +---scripts
+|           |   +---databases
+|           |   |   \---hive
+|           |   +---erd
+|           |   +---templates
+|           |   +---tests
+|           |   \---translations
+|           +---superset
+|           |   +---advanced_data_type
+|           |   |   \---plugins
+|           |   +---annotation_layers
+|           |   |   \---annotations
+|           |   +---async_events
+|           |   +---available_domains
+|           |   +---cachekeys
+|           |   +---charts
+|           |   |   \---data
+|           |   +---cli
+|           |   +---columns
+|           |   +---commands
+|           |   |   +---annotation_layer
+|           |   |   |   \---annotation
+|           |   |   +---chart
+|           |   |   |   +---data
+|           |   |   |   \---importers
+|           |   |   |       \---v1
+|           |   |   +---css
+|           |   |   +---dashboard
+|           |   |   |   +---embedded
+|           |   |   |   +---filter_state
+|           |   |   |   +---importers
+|           |   |   |   |   \---v1
+|           |   |   |   \---permalink
+|           |   |   +---database
+|           |   |   |   +---importers
+|           |   |   |   |   \---v1
+|           |   |   |   +---ssh_tunnel
+|           |   |   |   \---uploaders
+|           |   |   +---dataset
+|           |   |   |   +---columns
+|           |   |   |   +---importers
+|           |   |   |   |   \---v1
+|           |   |   |   \---metrics
+|           |   |   +---datasource
+|           |   |   +---distributed_lock
+|           |   |   +---explore
+|           |   |   |   +---form_data
+|           |   |   |   \---permalink
+|           |   |   +---export
+|           |   |   +---importers
+|           |   |   |   \---v1
+|           |   |   +---logs
+|           |   |   +---query
+|           |   |   |   \---importers
+|           |   |   |       \---v1
+|           |   |   +---report
+|           |   |   +---security
+|           |   |   +---semantic_layer
+|           |   |   +---sql_lab
+|           |   |   |   \---permalink
+|           |   |   +---streaming_export
+|           |   |   +---tag
+|           |   |   +---tasks
+|           |   |   +---temporary_cache
+|           |   |   \---theme
+|           |   |       \---importers
+|           |   +---common
+|           |   |   \---utils
+|           |   +---connectors
+|           |   |   \---sqla
+|           |   +---core
+|           |   |   +---api
+|           |   |   \---mcp
+|           |   +---css_templates
+|           |   +---daos
+|           |   +---dashboards
+|           |   |   +---filter_state
+|           |   |   \---permalink
+|           |   +---databases
+|           |   |   \---ssh_tunnel
+|           |   +---datasets
+|           |   |   +---columns
+|           |   |   \---metrics
+|           |   +---datasource
+|           |   +---db_engine_specs
+|           |   +---distributed_lock
+|           |   +---embedded
+|           |   +---embedded_dashboard
+|           |   +---examples
+|           |   |   +---deckgl_demo
+|           |   |   |   +---charts
+|           |   |   |   +---data
+|           |   |   |   \---datasets
+|           |   |   +---fcc_new_coder_survey
+|           |   |   |   \---charts
+|           |   |   +---featured_charts
+|           |   |   |   +---charts
+|           |   |   |   +---data
+|           |   |   |   \---datasets
+|           |   |   +---international_sales
+|           |   |   +---misc_charts
+|           |   |   |   +---charts
+|           |   |   |   +---data
+|           |   |   |   \---datasets
+|           |   |   +---sales_dashboard
+|           |   |   |   \---charts
+|           |   |   +---slack_dashboard
+|           |   |   |   +---charts
+|           |   |   |   +---data
+|           |   |   |   \---datasets
+|           |   |   +---usa_births_names
+|           |   |   |   \---charts
+|           |   |   +---video_game_sales
+|           |   |   |   \---charts
+|           |   |   +---world_health
+|           |   |   |   \---charts
+|           |   |   \---_shared
+|           |   +---explorables
+|           |   +---explore
+|           |   |   +---form_data
+|           |   |   \---permalink
+|           |   +---extensions
+|           |   +---importexport
+|           |   +---initialization
+|           |   +---key_value
+|           |   |   \---commands
+|           |   +---mcp_service
+|           |   |   +---annotation_layer
+|           |   |   |   \---tool
+|           |   |   +---bin
+|           |   |   +---chart
+|           |   |   |   +---prompts
+|           |   |   |   +---resources
+|           |   |   |   +---tool
+|           |   |   |   \---validation
+|           |   |   |       \---runtime
+|           |   |   +---commands
+|           |   |   +---common
+|           |   |   +---dashboard
+|           |   |   |   +---prompts
+|           |   |   |   +---resources
+|           |   |   |   \---tool
+|           |   |   +---database
+|           |   |   |   \---tool
+|           |   |   +---dataset
+|           |   |   |   +---prompts
+|           |   |   |   +---resources
+|           |   |   |   \---tool
+|           |   |   +---docs
+|           |   |   +---explore
+|           |   |   |   \---tool
+|           |   |   +---query
+|           |   |   |   \---tool
+|           |   |   +---report
+|           |   |   |   \---tool
+|           |   |   +---rls
+|           |   |   |   \---tool
+|           |   |   +---role
+|           |   |   |   \---tool
+|           |   |   +---saved_query
+|           |   |   |   \---tool
+|           |   |   +---screenshot
+|           |   |   +---sql_lab
+|           |   |   |   \---tool
+|           |   |   +---system
+|           |   |   |   +---prompts
+|           |   |   |   +---resources
+|           |   |   |   \---tool
+|           |   |   +---tag
+|           |   |   |   \---tool
+|           |   |   +---task
+|           |   |   |   \---tool
+|           |   |   +---user
+|           |   |   |   \---tool
+|           |   |   \---utils
+|           |   +---migrations
+|           |   |   +---shared
+|           |   |   |   \---migrate_viz
+|           |   |   \---versions
+|           |   +---models
+|           |   |   \---sql_types
+|           |   +---queries
+|           |   |   \---saved_queries
+|           |   +---reports
+|           |   |   +---logs
+|           |   |   \---notifications
+|           |   +---row_level_security
+|           |   +---security
+|           |   +---semantic_layers
+|           |   +---sql
+|           |   |   +---dialects
+|           |   |   \---execution
+|           |   +---sqllab
+|           |   |   \---permalink
+|           |   +---sql_validators
+|           |   +---static
+|           |   |   \---uploads
+|           |   +---tables
+|           |   +---tags
+|           |   +---tasks
+|           |   +---templates
+|           |   |   \---superset
+|           |   |       \---partials
+|           |   +---temporary_cache
+|           |   +---themes
+|           |   +---thumbnails
+|           |   +---translations
+|           |   |   +---ar
+|           |   |   |   \---LC_MESSAGES
+|           |   |   +---ca
+|           |   |   |   \---LC_MESSAGES
+|           |   |   +---cs
+|           |   |   |   \---LC_MESSAGES
+|           |   |   +---de
+|           |   |   |   \---LC_MESSAGES
+|           |   |   +---en
+|           |   |   |   \---LC_MESSAGES
+|           |   |   +---es
+|           |   |   |   \---LC_MESSAGES
+|           |   |   +---fa
+|           |   |   |   \---LC_MESSAGES
+|           |   |   +---fi
+|           |   |   |   \---LC_MESSAGES
+|           |   |   +---fr
+|           |   |   |   \---LC_MESSAGES
+|           |   |   +---it
+|           |   |   |   \---LC_MESSAGES
+|           |   |   +---ja
+|           |   |   |   \---LC_MESSAGES
+|           |   |   +---ko
+|           |   |   |   \---LC_MESSAGES
+|           |   |   +---lv
+|           |   |   |   \---LC_MESSAGES
+|           |   |   +---mi
+|           |   |   |   \---LC_MESSAGES
+|           |   |   +---nl
+|           |   |   |   \---LC_MESSAGES
+|           |   |   +---pl
+|           |   |   |   \---LC_MESSAGES
+|           |   |   +---pt
+|           |   |   |   \---LC_MESSAGES
+|           |   |   +---pt_BR
+|           |   |   |   \---LC_MESSAGES
+|           |   |   +---ro
+|           |   |   |   \---LC_MESSAGES
+|           |   |   +---ru
+|           |   |   |   \---LC_MESSAGES
+|           |   |   +---sk
+|           |   |   |   \---LC_MESSAGES
+|           |   |   +---sl
+|           |   |   |   \---LC_MESSAGES
+|           |   |   +---sr
+|           |   |   |   \---LC_MESSAGES
+|           |   |   +---sr_Latn
+|           |   |   |   \---LC_MESSAGES
+|           |   |   +---th
+|           |   |   |   \---LC_MESSAGES
+|           |   |   +---tr
+|           |   |   |   \---LC_MESSAGES
+|           |   |   +---uk
+|           |   |   |   \---LC_MESSAGES
+|           |   |   +---zh
+|           |   |   |   \---LC_MESSAGES
+|           |   |   \---zh_TW
+|           |   |       \---LC_MESSAGES
+|           |   +---utils
+|           |   |   \---pandas_postprocessing
+|           |   \---views
+|           |       +---chart
+|           |       +---dashboard
+|           |       +---database
+|           |       +---datasource
+|           |       +---log
+|           |       +---sql_lab
+|           |       \---users
+|           +---superset-core
+|           |   \---src
+|           |       \---superset_core
+|           |           +---common
+|           |           +---extensions
+|           |           +---mcp
+|           |           +---queries
+|           |           +---rest_api
+|           |           +---semantic_layers
+|           |           \---tasks
+|           +---superset-embedded-sdk
+|           |   \---src
+|           +---superset-extensions-cli
+|           |   +---src
+|           |   |   \---superset_extensions_cli
+|           |   |       \---templates
+|           |   |           +---backend
+|           |   |           |   \---src
+|           |   |           |       \---package
+|           |   |           \---frontend
+|           |   |               \---src
+|           |   \---tests
+|           +---superset-frontend
+|           |   +---.storybook
+|           |   |   \---shared
+|           |   +---cypress-base
+|           |   |   \---cypress
+|           |   |       +---e2e
+|           |   |       |   +---dashboard
+|           |   |       |   +---database
+|           |   |       |   \---explore
+|           |   |       |       \---visualizations
+|           |   |       +---fixtures
+|           |   |       +---support
+|           |   |       \---utils
+|           |   +---eslint-rules
+|           |   |   +---eslint-plugin-i18n-strings
+|           |   |   +---eslint-plugin-icons
+|           |   |   \---eslint-plugin-theme-colors
+|           |   +---packages
+|           |   |   +---generator-superset
+|           |   |   |   +---generators
+|           |   |   |   |   +---app
+|           |   |   |   |   \---plugin-chart
+|           |   |   |   |       \---templates
+|           |   |   |   |           +---src
+|           |   |   |   |           |   +---images
+|           |   |   |   |           |   \---plugin
+|           |   |   |   |           +---test
+|           |   |   |   |           |   +---plugin
+|           |   |   |   |           |   \---__mocks__
+|           |   |   |   |           \---types
+|           |   |   |   \---test
+|           |   |   +---superset-core
+|           |   |   |   +---src
+|           |   |   |   |   +---authentication
+|           |   |   |   |   +---commands
+|           |   |   |   |   +---common
+|           |   |   |   |   +---components
+|           |   |   |   |   |   \---Alert
+|           |   |   |   |   +---contributions
+|           |   |   |   |   +---editors
+|           |   |   |   |   +---extensions
+|           |   |   |   |   +---menus
+|           |   |   |   |   +---sqlLab
+|           |   |   |   |   +---theme
+|           |   |   |   |   |   \---utils
+|           |   |   |   |   +---translation
+|           |   |   |   |   |   \---types
+|           |   |   |   |   +---utils
+|           |   |   |   |   \---views
+|           |   |   |   \---types
+|           |   |   +---superset-ui-chart-controls
+|           |   |   |   +---src
+|           |   |   |   |   +---components
+|           |   |   |   |   |   \---ColumnTypeLabel
+|           |   |   |   |   |       \---type-icons
+|           |   |   |   |   +---operators
+|           |   |   |   |   |   \---utils
+|           |   |   |   |   +---sections
+|           |   |   |   |   +---shared-controls
+|           |   |   |   |   |   \---components
+|           |   |   |   |   \---utils
+|           |   |   |   \---test
+|           |   |   |       +---components
+|           |   |   |       +---operators
+|           |   |   |       |   \---utils
+|           |   |   |       +---shared-controls
+|           |   |   |       |   \---components
+|           |   |   |       \---utils
+|           |   |   +---superset-ui-core
+|           |   |   |   +---src
+|           |   |   |   |   +---chart
+|           |   |   |   |   |   +---clients
+|           |   |   |   |   |   +---components
+|           |   |   |   |   |   |   \---Matrixify
+|           |   |   |   |   |   +---models
+|           |   |   |   |   |   +---registries
+|           |   |   |   |   |   +---stories
+|           |   |   |   |   |   \---types
+|           |   |   |   |   +---chart-composition
+|           |   |   |   |   |   +---legend
+|           |   |   |   |   |   \---tooltip
+|           |   |   |   |   +---color
+|           |   |   |   |   |   +---colorSchemes
+|           |   |   |   |   |   |   +---categorical
+|           |   |   |   |   |   |   \---sequential
+|           |   |   |   |   |   \---stories
+|           |   |   |   |   +---components
+|           |   |   |   |   |   +---ActionButton
+|           |   |   |   |   |   +---AntdThemeProvider
+|           |   |   |   |   |   +---assets
+|           |   |   |   |   |   |   +---images
+|           |   |   |   |   |   |   \---svgs
+|           |   |   |   |   |   +---AsyncAceEditor
+|           |   |   |   |   |   +---AsyncEsmComponent
+|           |   |   |   |   |   +---AutoComplete
+|           |   |   |   |   |   +---Avatar
+|           |   |   |   |   |   +---Badge
+|           |   |   |   |   |   +---Breadcrumb
+|           |   |   |   |   |   +---Button
+|           |   |   |   |   |   +---ButtonGroup
+|           |   |   |   |   |   +---CachedLabel
+|           |   |   |   |   |   +---Card
+|           |   |   |   |   |   +---CertifiedBadge
+|           |   |   |   |   |   +---Checkbox
+|           |   |   |   |   |   +---CodeEditor
+|           |   |   |   |   |   +---CodeSyntaxHighlighter
+|           |   |   |   |   |   +---Collapse
+|           |   |   |   |   |   +---ColorPicker
+|           |   |   |   |   |   +---ConfirmModal
+|           |   |   |   |   |   +---ConfirmStatusChange
+|           |   |   |   |   |   +---CronPicker
+|           |   |   |   |   |   +---DatePicker
+|           |   |   |   |   |   +---DeleteModal
+|           |   |   |   |   |   +---Divider
+|           |   |   |   |   |   +---Drawer
+|           |   |   |   |   |   +---Dropdown
+|           |   |   |   |   |   +---DropdownButton
+|           |   |   |   |   |   +---DropdownContainer
+|           |   |   |   |   |   +---DynamicEditableTitle
+|           |   |   |   |   |   +---EditableTitle
+|           |   |   |   |   |   +---EmptyState
+|           |   |   |   |   |   |   \---svgs
+|           |   |   |   |   |   +---FaveStar
+|           |   |   |   |   |   +---Flex
+|           |   |   |   |   |   +---Form
+|           |   |   |   |   |   +---Grid
+|           |   |   |   |   |   +---IconButton
+|           |   |   |   |   |   +---Icons
+|           |   |   |   |   |   |   \---svgs
+|           |   |   |   |   |   +---IconTooltip
+|           |   |   |   |   |   +---Image
+|           |   |   |   |   |   +---InfoTooltip
+|           |   |   |   |   |   +---Input
+|           |   |   |   |   |   +---Label
+|           |   |   |   |   |   |   \---reusable
+|           |   |   |   |   |   +---LastUpdated
+|           |   |   |   |   |   +---Layout
+|           |   |   |   |   |   +---List
+|           |   |   |   |   |   +---ListViewCard
+|           |   |   |   |   |   +---Loading
+|           |   |   |   |   |   +---Menu
+|           |   |   |   |   |   +---Metadata
+|           |   |   |   |   |   +---MetadataBar
+|           |   |   |   |   |   +---Modal
+|           |   |   |   |   |   +---ModalTrigger
+|           |   |   |   |   |   +---PageHeaderWithActions
+|           |   |   |   |   |   +---Pagination
+|           |   |   |   |   |   +---Popconfirm
+|           |   |   |   |   |   +---Popover
+|           |   |   |   |   |   +---PopoverDropdown
+|           |   |   |   |   |   +---PopoverSection
+|           |   |   |   |   |   +---Progress
+|           |   |   |   |   |   +---ProgressBar
+|           |   |   |   |   |   +---Radio
+|           |   |   |   |   |   +---RefreshLabel
+|           |   |   |   |   |   +---Result
+|           |   |   |   |   |   +---SafeMarkdown
+|           |   |   |   |   |   +---Select
+|           |   |   |   |   |   +---Skeleton
+|           |   |   |   |   |   +---Slider
+|           |   |   |   |   |   +---Space
+|           |   |   |   |   |   +---Spin
+|           |   |   |   |   |   +---Steps
+|           |   |   |   |   |   +---Switch
+|           |   |   |   |   |   +---Table
+|           |   |   |   |   |   |   +---cell-renderers
+|           |   |   |   |   |   |   |   +---ActionCell
+|           |   |   |   |   |   |   |   +---BooleanCell
+|           |   |   |   |   |   |   |   +---ButtonCell
+|           |   |   |   |   |   |   |   +---NullCell
+|           |   |   |   |   |   |   |   +---NumericCell
+|           |   |   |   |   |   |   |   \---TimeCell
+|           |   |   |   |   |   |   +---header-renderers
+|           |   |   |   |   |   |   \---utils
+|           |   |   |   |   |   +---TableCollection
+|           |   |   |   |   |   +---TableView
+|           |   |   |   |   |   +---Tabs
+|           |   |   |   |   |   +---Tag
+|           |   |   |   |   |   +---TelemetryPixel
+|           |   |   |   |   |   +---ThemedAgGridReact
+|           |   |   |   |   |   +---Timer
+|           |   |   |   |   |   +---TimezoneSelector
+|           |   |   |   |   |   +---Tooltip
+|           |   |   |   |   |   +---TooltipParagraph
+|           |   |   |   |   |   +---Tree
+|           |   |   |   |   |   +---TreeSelect
+|           |   |   |   |   |   +---TruncatedList
+|           |   |   |   |   |   +---Typography
+|           |   |   |   |   |   +---UnsavedChangesModal
+|           |   |   |   |   |   +---Upload
+|           |   |   |   |   |   \---WarningIconWithTooltip
+|           |   |   |   |   +---connection
+|           |   |   |   |   |   +---callApi
+|           |   |   |   |   |   \---stories
+|           |   |   |   |   +---currency-format
+|           |   |   |   |   +---dimension
+|           |   |   |   |   |   \---svg
+|           |   |   |   |   +---dynamic-plugins
+|           |   |   |   |   +---hooks
+|           |   |   |   |   |   +---useChangeEffect
+|           |   |   |   |   |   +---useComponentDidMount
+|           |   |   |   |   |   +---useComponentDidUpdate
+|           |   |   |   |   |   +---useElementOnScreen
+|           |   |   |   |   |   +---usePrevious
+|           |   |   |   |   |   \---useTruncation
+|           |   |   |   |   +---math-expression
+|           |   |   |   |   +---models
+|           |   |   |   |   +---number-format
+|           |   |   |   |   |   +---factories
+|           |   |   |   |   |   +---stories
+|           |   |   |   |   |   \---utils
+|           |   |   |   |   +---query
+|           |   |   |   |   |   +---api
+|           |   |   |   |   |   |   +---legacy
+|           |   |   |   |   |   |   \---v1
+|           |   |   |   |   |   \---types
+|           |   |   |   |   +---spec
+|           |   |   |   |   +---style
+|           |   |   |   |   |   \---stories
+|           |   |   |   |   +---time-comparison
+|           |   |   |   |   +---time-format
+|           |   |   |   |   |   +---factories
+|           |   |   |   |   |   +---formatters
+|           |   |   |   |   |   +---stories
+|           |   |   |   |   |   \---utils
+|           |   |   |   |   +---types
+|           |   |   |   |   +---ui-overrides
+|           |   |   |   |   +---utils
+|           |   |   |   |   \---validator
+|           |   |   |   +---test
+|           |   |   |   |   +---chart
+|           |   |   |   |   |   +---clients
+|           |   |   |   |   |   +---components
+|           |   |   |   |   |   +---fixtures
+|           |   |   |   |   |   \---models
+|           |   |   |   |   +---chart-composition
+|           |   |   |   |   |   +---legend
+|           |   |   |   |   |   \---tooltip
+|           |   |   |   |   +---color
+|           |   |   |   |   +---components
+|           |   |   |   |   |   \---Icons
+|           |   |   |   |   +---connection
+|           |   |   |   |   |   +---callApi
+|           |   |   |   |   |   \---fixtures
+|           |   |   |   |   +---currency-format
+|           |   |   |   |   +---dimension
+|           |   |   |   |   |   \---svg
+|           |   |   |   |   +---dynamic-plugins
+|           |   |   |   |   +---math-expression
+|           |   |   |   |   +---models
+|           |   |   |   |   +---number-format
+|           |   |   |   |   |   +---factories
+|           |   |   |   |   |   \---utils
+|           |   |   |   |   +---query
+|           |   |   |   |   |   +---api
+|           |   |   |   |   |   |   +---legacy
+|           |   |   |   |   |   |   \---v1
+|           |   |   |   |   |   \---types
+|           |   |   |   |   +---time-comparison
+|           |   |   |   |   +---time-format
+|           |   |   |   |   |   +---factories
+|           |   |   |   |   |   +---formatters
+|           |   |   |   |   |   \---utils
+|           |   |   |   |   +---ui-overrides
+|           |   |   |   |   +---utils
+|           |   |   |   |   +---validator
+|           |   |   |   |   \---__mocks__
+|           |   |   |   +---types
+|           |   |   |   \---__mocks__
+|           |   |   \---superset-ui-switchboard
+|           |   |       \---src
+|           |   +---playwright
+|           |   |   +---components
+|           |   |   |   +---core
+|           |   |   |   +---ListView
+|           |   |   |   \---modals
+|           |   |   +---embedded-app
+|           |   |   +---generators
+|           |   |   |   \---docs
+|           |   |   +---helpers
+|           |   |   |   +---api
+|           |   |   |   \---fixtures
+|           |   |   +---pages
+|           |   |   +---tests
+|           |   |   |   +---auth
+|           |   |   |   +---chart
+|           |   |   |   +---dashboard
+|           |   |   |   +---dataset
+|           |   |   |   +---embedded
+|           |   |   |   +---experimental
+|           |   |   |   \---sqllab
+|           |   |   \---utils
+|           |   +---plugins
+|           |   |   +---legacy-plugin-chart-calendar
+|           |   |   |   +---src
+|           |   |   |   |   +---images
+|           |   |   |   |   +---stories
+|           |   |   |   |   \---vendor
+|           |   |   |   +---test
+|           |   |   |   \---types
+|           |   |   +---legacy-plugin-chart-chord
+|           |   |   |   +---src
+|           |   |   |   |   +---images
+|           |   |   |   |   \---stories
+|           |   |   |   \---types
+|           |   |   +---legacy-plugin-chart-country-map
+|           |   |   |   +---scripts
+|           |   |   |   +---src
+|           |   |   |   |   +---countries
+|           |   |   |   |   +---images
+|           |   |   |   |   \---stories
+|           |   |   |   +---test
+|           |   |   |   \---types
+|           |   |   +---legacy-plugin-chart-horizon
+|           |   |   |   +---src
+|           |   |   |   |   +---images
+|           |   |   |   |   \---stories
+|           |   |   |   \---types
+|           |   |   +---legacy-plugin-chart-paired-t-test
+|           |   |   |   +---src
+|           |   |   |   |   +---images
+|           |   |   |   |   \---stories
+|           |   |   |   \---types
+|           |   |   +---legacy-plugin-chart-parallel-coordinates
+|           |   |   |   +---src
+|           |   |   |   |   +---images
+|           |   |   |   |   +---stories
+|           |   |   |   |   \---vendor
+|           |   |   |   |       \---parcoords
+|           |   |   |   \---types
+|           |   |   +---legacy-plugin-chart-partition
+|           |   |   |   +---src
+|           |   |   |   |   +---images
+|           |   |   |   |   \---stories
+|           |   |   |   +---test
+|           |   |   |   \---types
+|           |   |   +---legacy-plugin-chart-rose
+|           |   |   |   +---src
+|           |   |   |   |   +---images
+|           |   |   |   |   \---stories
+|           |   |   |   \---types
+|           |   |   +---legacy-plugin-chart-world-map
+|           |   |   |   +---src
+|           |   |   |   |   +---images
+|           |   |   |   |   \---stories
+|           |   |   |   +---test
+|           |   |   |   \---types
+|           |   |   +---legacy-preset-chart-nvd3
+|           |   |   |   +---src
+|           |   |   |   |   +---BoxPlot
+|           |   |   |   |   |   \---stories
+|           |   |   |   |   +---Bubble
+|           |   |   |   |   |   +---images
+|           |   |   |   |   |   \---stories
+|           |   |   |   |   +---Bullet
+|           |   |   |   |   |   +---images
+|           |   |   |   |   |   \---stories
+|           |   |   |   |   +---Compare
+|           |   |   |   |   |   +---images
+|           |   |   |   |   |   \---stories
+|           |   |   |   |   +---TimePivot
+|           |   |   |   |   |   \---images
+|           |   |   |   |   +---utils
+|           |   |   |   |   \---vendor
+|           |   |   |   |       \---superset
+|           |   |   |   +---test
+|           |   |   |   |   \---utils
+|           |   |   |   \---types
+|           |   |   +---plugin-chart-ag-grid-table
+|           |   |   |   +---src
+|           |   |   |   |   +---AgGridTable
+|           |   |   |   |   |   \---components
+|           |   |   |   |   +---images
+|           |   |   |   |   +---renderers
+|           |   |   |   |   +---stories
+|           |   |   |   |   +---styles
+|           |   |   |   |   \---utils
+|           |   |   |   +---test
+|           |   |   |   |   \---utils
+|           |   |   |   \---types
+|           |   |   +---plugin-chart-cartodiagram
+|           |   |   |   +---src
+|           |   |   |   |   +---components
+|           |   |   |   |   +---images
+|           |   |   |   |   +---plugin
+|           |   |   |   |   +---stories
+|           |   |   |   |   \---util
+|           |   |   |   +---test
+|           |   |   |   |   +---components
+|           |   |   |   |   +---plugin
+|           |   |   |   |   \---util
+|           |   |   |   \---types
+|           |   |   +---plugin-chart-echarts
+|           |   |   |   +---src
+|           |   |   |   |   +---BigNumber
+|           |   |   |   |   |   +---BigNumberPeriodOverPeriod
+|           |   |   |   |   |   |   \---images
+|           |   |   |   |   |   +---BigNumberTotal
+|           |   |   |   |   |   |   +---images
+|           |   |   |   |   |   |   \---stories
+|           |   |   |   |   |   \---BigNumberWithTrendline
+|           |   |   |   |   |       +---images
+|           |   |   |   |   |       \---stories
+|           |   |   |   |   +---BoxPlot
+|           |   |   |   |   |   +---images
+|           |   |   |   |   |   \---stories
+|           |   |   |   |   +---Bubble
+|           |   |   |   |   |   +---images
+|           |   |   |   |   |   \---stories
+|           |   |   |   |   +---components
+|           |   |   |   |   +---Funnel
+|           |   |   |   |   |   +---images
+|           |   |   |   |   |   \---stories
+|           |   |   |   |   +---Gantt
+|           |   |   |   |   |   \---images
+|           |   |   |   |   +---Gauge
+|           |   |   |   |   |   +---images
+|           |   |   |   |   |   \---stories
+|           |   |   |   |   +---Graph
+|           |   |   |   |   |   +---images
+|           |   |   |   |   |   \---stories
+|           |   |   |   |   +---Heatmap
+|           |   |   |   |   |   \---images
+|           |   |   |   |   +---Histogram
+|           |   |   |   |   |   \---images
+|           |   |   |   |   +---MixedTimeseries
+|           |   |   |   |   |   +---images
+|           |   |   |   |   |   \---stories
+|           |   |   |   |   +---Pie
+|           |   |   |   |   |   +---images
+|           |   |   |   |   |   \---stories
+|           |   |   |   |   +---Radar
+|           |   |   |   |   |   +---images
+|           |   |   |   |   |   \---stories
+|           |   |   |   |   +---Sankey
+|           |   |   |   |   |   \---images
+|           |   |   |   |   +---Sunburst
+|           |   |   |   |   |   +---images
+|           |   |   |   |   |   \---stories
+|           |   |   |   |   +---Timeseries
+|           |   |   |   |   |   +---Area
+|           |   |   |   |   |   |   \---images
+|           |   |   |   |   |   +---images
+|           |   |   |   |   |   +---Regular
+|           |   |   |   |   |   |   +---Bar
+|           |   |   |   |   |   |   |   \---images
+|           |   |   |   |   |   |   +---Line
+|           |   |   |   |   |   |   |   \---images
+|           |   |   |   |   |   |   +---Scatter
+|           |   |   |   |   |   |   |   \---images
+|           |   |   |   |   |   |   \---SmoothLine
+|           |   |   |   |   |   |       \---images
+|           |   |   |   |   |   +---Step
+|           |   |   |   |   |   |   \---images
+|           |   |   |   |   |   \---stories
+|           |   |   |   |   |       \---AreaSeries
+|           |   |   |   |   +---Tree
+|           |   |   |   |   |   +---images
+|           |   |   |   |   |   \---stories
+|           |   |   |   |   +---Treemap
+|           |   |   |   |   |   +---images
+|           |   |   |   |   |   \---stories
+|           |   |   |   |   +---utils
+|           |   |   |   |   \---Waterfall
+|           |   |   |   |       +---images
+|           |   |   |   |       \---stories
+|           |   |   |   +---test
+|           |   |   |   |   +---BigNumber
+|           |   |   |   |   +---BoxPlot
+|           |   |   |   |   +---Bubble
+|           |   |   |   |   +---components
+|           |   |   |   |   +---Funnel
+|           |   |   |   |   +---Gantt
+|           |   |   |   |   +---Gauge
+|           |   |   |   |   +---Graph
+|           |   |   |   |   +---Heatmap
+|           |   |   |   |   +---Histogram
+|           |   |   |   |   +---MixedTimeseries
+|           |   |   |   |   +---Pie
+|           |   |   |   |   +---Radar
+|           |   |   |   |   +---Sunburst
+|           |   |   |   |   +---Timeseries
+|           |   |   |   |   |   +---Area
+|           |   |   |   |   |   +---Bar
+|           |   |   |   |   |   +---Line
+|           |   |   |   |   |   +---Scatter
+|           |   |   |   |   |   +---SmoothLine
+|           |   |   |   |   |   \---Step
+|           |   |   |   |   +---Tree
+|           |   |   |   |   +---Treemap
+|           |   |   |   |   +---utils
+|           |   |   |   |   \---Waterfall
+|           |   |   |   \---types
+|           |   |   +---plugin-chart-handlebars
+|           |   |   |   +---src
+|           |   |   |   |   +---components
+|           |   |   |   |   |   +---CodeEditor
+|           |   |   |   |   |   +---ControlHeader
+|           |   |   |   |   |   \---Handlebars
+|           |   |   |   |   +---images
+|           |   |   |   |   +---plugin
+|           |   |   |   |   |   \---controls
+|           |   |   |   |   \---stories
+|           |   |   |   +---test
+|           |   |   |   |   +---components
+|           |   |   |   |   \---plugin
+|           |   |   |   \---types
+|           |   |   +---plugin-chart-pivot-table
+|           |   |   |   +---src
+|           |   |   |   |   +---images
+|           |   |   |   |   +---plugin
+|           |   |   |   |   +---react-pivottable
+|           |   |   |   |   \---stories
+|           |   |   |   +---test
+|           |   |   |   |   +---plugin
+|           |   |   |   |   \---react-pivottable
+|           |   |   |   \---types
+|           |   |   +---plugin-chart-point-cluster-map
+|           |   |   |   +---src
+|           |   |   |   |   +---components
+|           |   |   |   |   +---images
+|           |   |   |   |   +---stories
+|           |   |   |   |   \---utils
+|           |   |   |   +---test
+|           |   |   |   \---types
+|           |   |   +---plugin-chart-table
+|           |   |   |   +---src
+|           |   |   |   |   +---DataTable
+|           |   |   |   |   |   +---components
+|           |   |   |   |   |   +---hooks
+|           |   |   |   |   |   +---types
+|           |   |   |   |   |   \---utils
+|           |   |   |   |   +---images
+|           |   |   |   |   +---stories
+|           |   |   |   |   \---utils
+|           |   |   |   +---test
+|           |   |   |   |   \---utils
+|           |   |   |   \---types
+|           |   |   +---plugin-chart-word-cloud
+|           |   |   |   +---src
+|           |   |   |   |   +---chart
+|           |   |   |   |   +---images
+|           |   |   |   |   +---plugin
+|           |   |   |   |   |   \---controls
+|           |   |   |   |   |       \---ColorSchemeControl
+|           |   |   |   |   \---stories
+|           |   |   |   +---test
+|           |   |   |   \---types
+|           |   |   \---preset-chart-deckgl
+|           |   |       +---src
+|           |   |       |   +---components
+|           |   |       |   +---layers
+|           |   |       |   |   +---Arc
+|           |   |       |   |   |   +---images
+|           |   |       |   |   |   \---stories
+|           |   |       |   |   +---Contour
+|           |   |       |   |   |   \---images
+|           |   |       |   |   +---Geojson
+|           |   |       |   |   |   \---images
+|           |   |       |   |   +---Grid
+|           |   |       |   |   |   +---images
+|           |   |       |   |   |   \---stories
+|           |   |       |   |   +---Heatmap
+|           |   |       |   |   |   \---images
+|           |   |       |   |   +---Hex
+|           |   |       |   |   |   +---images
+|           |   |       |   |   |   \---stories
+|           |   |       |   |   +---Path
+|           |   |       |   |   |   +---images
+|           |   |       |   |   |   \---stories
+|           |   |       |   |   +---Polygon
+|           |   |       |   |   |   +---images
+|           |   |       |   |   |   \---stories
+|           |   |       |   |   +---Scatter
+|           |   |       |   |   |   +---images
+|           |   |       |   |   |   \---stories
+|           |   |       |   |   +---Screengrid
+|           |   |       |   |   |   +---images
+|           |   |       |   |   |   \---stories
+|           |   |       |   |   \---utils
+|           |   |       |   +---Multi
+|           |   |       |   |   \---images
+|           |   |       |   +---utilities
+|           |   |       |   \---utils
+|           |   |       \---types
+|           |   +---scripts
+|           |   +---spec
+|           |   |   +---fixtures
+|           |   |   +---helpers
+|           |   |   \---__mocks__
+|           |   \---src
+|           |       +---assets
+|           |       |   +---branding
+|           |       |   +---images
+|           |       |   |   +---icons
+|           |       |   |   +---pwa
+|           |       |   |   +---screenshots
+|           |       |   |   +---tutorial
+|           |       |   |   +---usertutorial
+|           |       |   |   \---viz_thumbnails
+|           |       |   \---staticPages
+|           |       +---chartCustomizations
+|           |       |   \---components
+|           |       |       +---DeckglLayerVisibility
+|           |       |       |   \---images
+|           |       |       +---DynamicGroupBy
+|           |       |       |   \---images
+|           |       |       +---TimeColumn
+|           |       |       |   \---images
+|           |       |       \---TimeGrain
+|           |       |           \---images
+|           |       +---components
+|           |       |   +---AlteredSliceTag
+|           |       |   |   \---utils
+|           |       |   +---AuditInfo
+|           |       |   +---Chart
+|           |       |   |   +---ChartContextMenu
+|           |       |   |   +---DrillBy
+|           |       |   |   +---DrillDetail
+|           |       |   |   \---useDrillDetailMenuItems
+|           |       |   +---CopyToClipboard
+|           |       |   +---DatabaseSelector
+|           |       |   +---Datasource
+|           |       |   |   +---ChangeDatasourceModal
+|           |       |   |   +---components
+|           |       |   |   |   +---CollectionTable
+|           |       |   |   |   +---DatasourceEditor
+|           |       |   |   |   |   +---components
+|           |       |   |   |   |   |   +---DashboardLinksExternal
+|           |       |   |   |   |   |   \---DatasetUsageTab
+|           |       |   |   |   |   \---tests
+|           |       |   |   |   +---Field
+|           |       |   |   |   \---Fieldset
+|           |       |   |   +---DatasourceModal
+|           |       |   |   +---FoldersEditor
+|           |       |   |   |   +---components
+|           |       |   |   |   \---hooks
+|           |       |   |   \---utils
+|           |       |   +---Descriptions
+|           |       |   +---DynamicPlugins
+|           |       |   +---ErrorBoundary
+|           |       |   +---ErrorMessage
+|           |       |   +---FacePile
+|           |       |   +---FilterableTable
+|           |       |   +---GenericLink
+|           |       |   +---GridTable
+|           |       |   +---ImportModal
+|           |       |   +---JsonModal
+|           |       |   +---LastQueriedLabel
+|           |       |   +---ListView
+|           |       |   |   \---Filters
+|           |       |   +---MessageToasts
+|           |       |   +---Modal
+|           |       |   +---ModalTitleWithIcon
+|           |       |   +---PanelToolbar
+|           |       |   +---ResizableSidebar
+|           |       |   +---RowCountLabel
+|           |       |   +---Splitter
+|           |       |   +---SQLEditorWithValidation
+|           |       |   +---StreamingExportModal
+|           |       |   +---TableSelector
+|           |       |   +---Tag
+|           |       |   +---TagsList
+|           |       |   +---TimePicker
+|           |       |   +---UiConfigContext
+|           |       |   \---ViewListExtension
+|           |       +---core
+|           |       |   +---authentication
+|           |       |   +---commands
+|           |       |   +---editors
+|           |       |   +---extensions
+|           |       |   +---menus
+|           |       |   +---sqlLab
+|           |       |   \---views
+|           |       +---dashboard
+|           |       |   +---actions
+|           |       |   +---components
+|           |       |   |   +---AddSliceCard
+|           |       |   |   +---AnchorLink
+|           |       |   |   +---AutoRefreshIndicator
+|           |       |   |   +---AutoRefreshStatus
+|           |       |   |   +---BuilderComponentPane
+|           |       |   |   +---CustomizationsBadge
+|           |       |   |   +---DashboardBuilder
+|           |       |   |   +---dnd
+|           |       |   |   |   \---handleScroll
+|           |       |   |   +---EmbeddedModal
+|           |       |   |   +---FiltersBadge
+|           |       |   |   |   +---DetailsPanel
+|           |       |   |   |   \---FilterIndicator
+|           |       |   |   +---filterscope
+|           |       |   |   +---gridComponents
+|           |       |   |   |   +---Chart
+|           |       |   |   |   +---ChartHolder
+|           |       |   |   |   +---Column
+|           |       |   |   |   +---Divider
+|           |       |   |   |   +---DynamicComponent
+|           |       |   |   |   +---Header
+|           |       |   |   |   +---Markdown
+|           |       |   |   |   +---new
+|           |       |   |   |   +---Row
+|           |       |   |   |   +---Tab
+|           |       |   |   |   +---Tabs
+|           |       |   |   |   \---TabsRenderer
+|           |       |   |   +---Header
+|           |       |   |   +---menu
+|           |       |   |   |   +---DownloadMenuItems
+|           |       |   |   |   \---ShareMenuItems
+|           |       |   |   +---nativeFilters
+|           |       |   |   |   +---ConfigModal
+|           |       |   |   |   +---FilterBar
+|           |       |   |   |   |   +---ActionButtons
+|           |       |   |   |   |   +---CrossFilters
+|           |       |   |   |   |   |   \---ScopingModal
+|           |       |   |   |   |   +---CustomizationsOutOfScopeCollapsible
+|           |       |   |   |   |   +---FilterBarSettings
+|           |       |   |   |   |   +---FilterConfigurationLink
+|           |       |   |   |   |   +---FilterControls
+|           |       |   |   |   |   +---FiltersDropdownContent
+|           |       |   |   |   |   +---FiltersOutOfScopeCollapsible
+|           |       |   |   |   |   +---Header
+|           |       |   |   |   |   \---UrlFilters
+|           |       |   |   |   +---FilterCard
+|           |       |   |   |   \---FiltersConfigModal
+|           |       |   |   |       +---ConfigModalContent
+|           |       |   |   |       +---ConfigModalSidebar
+|           |       |   |   |       +---FiltersConfigForm
+|           |       |   |   |       |   \---FilterScope
+|           |       |   |   |       |       \---__tests__
+|           |       |   |   |       +---Footer
+|           |       |   |   |       +---hooks
+|           |       |   |   |       \---transformers
+|           |       |   |   +---OverwriteConfirm
+|           |       |   |   +---PropertiesModal
+|           |       |   |   |   +---hooks
+|           |       |   |   |   \---sections
+|           |       |   |   +---PublishedStatus
+|           |       |   |   +---RefreshButton
+|           |       |   |   +---RefreshFrequency
+|           |       |   |   +---resizable
+|           |       |   |   +---SliceHeader
+|           |       |   |   +---SliceHeaderControls
+|           |       |   |   +---SyncDashboardState
+|           |       |   |   +---UndoRedoKeyListeners
+|           |       |   |   \---URLShortLinkButton
+|           |       |   +---containers
+|           |       |   +---contexts
+|           |       |   +---fixtures
+|           |       |   +---hooks
+|           |       |   +---reducers
+|           |       |   +---types
+|           |       |   \---util
+|           |       |       +---charts
+|           |       |       \---logging
+|           |       +---database
+|           |       +---dataMask
+|           |       +---embedded
+|           |       +---explore
+|           |       |   +---actions
+|           |       |   +---components
+|           |       |   |   +---controls
+|           |       |   |   |   +---AnnotationLayerControl
+|           |       |   |   |   +---CollectionControl
+|           |       |   |   |   +---ColorBreakpointsControl
+|           |       |   |   |   +---ColorSchemeControl
+|           |       |   |   |   +---ColumnConfigControl
+|           |       |   |   |   |   \---ControlForm
+|           |       |   |   |   +---ConditionalFormattingControl
+|           |       |   |   |   +---ContourControl
+|           |       |   |   |   +---ControlPopover
+|           |       |   |   |   +---CurrencyControl
+|           |       |   |   |   +---CustomListItem
+|           |       |   |   |   +---DatasourceControl
+|           |       |   |   |   +---DateFilterControl
+|           |       |   |   |   |   +---components
+|           |       |   |   |   |   +---tests
+|           |       |   |   |   |   \---utils
+|           |       |   |   |   +---DndColumnSelectControl
+|           |       |   |   |   |   \---utils
+|           |       |   |   |   +---FilterControl
+|           |       |   |   |   |   +---AdhocFilter
+|           |       |   |   |   |   +---AdhocFilterControl
+|           |       |   |   |   |   +---AdhocFilterEditPopover
+|           |       |   |   |   |   +---AdhocFilterEditPopoverSimpleTabContent
+|           |       |   |   |   |   +---AdhocFilterEditPopoverSqlTabContent
+|           |       |   |   |   |   +---AdhocFilterOption
+|           |       |   |   |   |   +---AdhocFilterPopoverTrigger
+|           |       |   |   |   |   \---utils
+|           |       |   |   |   +---FixedOrMetricControl
+|           |       |   |   |   +---LayerConfigsControl
+|           |       |   |   |   +---MapViewControl
+|           |       |   |   |   +---MatrixifyControl
+|           |       |   |   |   |   \---utils
+|           |       |   |   |   +---MetricControl
+|           |       |   |   |   |   \---AdhocMetricEditPopover
+|           |       |   |   |   +---NumberControl
+|           |       |   |   |   +---OptionControls
+|           |       |   |   |   +---SelectAsyncControl
+|           |       |   |   |   +---TextControl
+|           |       |   |   |   +---TimeRangeControl
+|           |       |   |   |   +---TimeSeriesColumnControl
+|           |       |   |   |   +---VizTypeControl
+|           |       |   |   |   \---ZoomConfigControl
+|           |       |   |   +---DatasourcePanel
+|           |       |   |   |   \---DatasourcePanelDragOption
+|           |       |   |   +---DataTableControl
+|           |       |   |   +---DataTablesPane
+|           |       |   |   |   +---components
+|           |       |   |   |   \---test
+|           |       |   |   +---ExploreChartHeader
+|           |       |   |   +---ExploreChartPanel
+|           |       |   |   +---ExploreContainer
+|           |       |   |   +---ExploreViewContainer
+|           |       |   |   +---ExportToCSVDropdown
+|           |       |   |   +---PropertiesModal
+|           |       |   |   +---RunQueryButton
+|           |       |   |   +---StashFormDataContainer
+|           |       |   |   \---useExploreAdditionalActionsMenu
+|           |       |   +---controlPanels
+|           |       |   +---controlUtils
+|           |       |   +---exploreUtils
+|           |       |   \---reducers
+|           |       +---extensions
+|           |       +---features
+|           |       |   +---alerts
+|           |       |   |   \---components
+|           |       |   +---allEntities
+|           |       |   +---annotationLayers
+|           |       |   +---annotations
+|           |       |   +---apiKeys
+|           |       |   +---charts
+|           |       |   +---cssTemplates
+|           |       |   +---dashboards
+|           |       |   +---databases
+|           |       |   |   +---DatabaseModal
+|           |       |   |   |   \---DatabaseConnectionForm
+|           |       |   |   \---UploadDataModel
+|           |       |   +---datasets
+|           |       |   |   +---AddDataset
+|           |       |   |   |   +---DatasetPanel
+|           |       |   |   |   +---EditDataset
+|           |       |   |   |   +---Footer
+|           |       |   |   |   +---Header
+|           |       |   |   |   +---LeftPanel
+|           |       |   |   |   \---RightPanel
+|           |       |   |   +---DatasetLayout
+|           |       |   |   +---DatasetSelectLabel
+|           |       |   |   +---hooks
+|           |       |   |   \---metadataBar
+|           |       |   +---groups
+|           |       |   +---home
+|           |       |   +---owners
+|           |       |   |   \---OwnerSelectLabel
+|           |       |   +---queries
+|           |       |   |   \---hooks
+|           |       |   +---reports
+|           |       |   |   \---ReportModal
+|           |       |   |       \---HeaderReportDropdown
+|           |       |   +---rls
+|           |       |   +---roles
+|           |       |   +---semanticLayers
+|           |       |   +---semanticViews
+|           |       |   +---tags
+|           |       |   +---tasks
+|           |       |   +---themes
+|           |       |   +---userInfo
+|           |       |   \---users
+|           |       +---filters
+|           |       |   \---components
+|           |       |       +---Range
+|           |       |       |   \---images
+|           |       |       +---Select
+|           |       |       |   \---images
+|           |       |       +---Time
+|           |       |       |   \---images
+|           |       |       +---TimeColumn
+|           |       |       |   \---images
+|           |       |       \---TimeGrain
+|           |       |           \---images
+|           |       +---hooks
+|           |       |   +---apiResources
+|           |       |   +---useBeforeUnload
+|           |       |   +---useConfirmModal
+|           |       |   \---useUnsavedChangesPrompt
+|           |       +---logger
+|           |       |   \---actions
+|           |       +---middleware
+|           |       +---pages
+|           |       |   +---ActionLog
+|           |       |   +---AlertReportList
+|           |       |   +---AllEntities
+|           |       |   +---AnnotationLayerList
+|           |       |   +---AnnotationList
+|           |       |   +---Chart
+|           |       |   +---ChartCreation
+|           |       |   +---ChartList
+|           |       |   +---CssTemplateList
+|           |       |   +---Dashboard
+|           |       |   +---DashboardList
+|           |       |   +---DatabaseList
+|           |       |   +---DatasetCreation
+|           |       |   +---DatasetList
+|           |       |   +---ExecutionLogList
+|           |       |   +---FileHandler
+|           |       |   +---GroupsList
+|           |       |   +---Home
+|           |       |   +---Login
+|           |       |   +---QueryHistoryList
+|           |       |   +---RedirectWarning
+|           |       |   +---Register
+|           |       |   +---RolesList
+|           |       |   +---RowLevelSecurityList
+|           |       |   +---SavedQueryList
+|           |       |   +---SqlLab
+|           |       |   +---Tags
+|           |       |   +---TaskList
+|           |       |   +---ThemeList
+|           |       |   +---UserInfo
+|           |       |   +---UserRegistrations
+|           |       |   \---UsersList
+|           |       +---setup
+|           |       +---SqlLab
+|           |       |   +---actions
+|           |       |   +---components
+|           |       |   |   +---App
+|           |       |   |   +---AppLayout
+|           |       |   |   +---ColumnElement
+|           |       |   |   +---EditorAutoSync
+|           |       |   |   +---EditorWrapper
+|           |       |   |   +---EstimateQueryCostButton
+|           |       |   |   +---ExploreCtasResultsButton
+|           |       |   |   +---ExploreResultsButton
+|           |       |   |   +---HighlightedSql
+|           |       |   |   +---KeyboardShortcutButton
+|           |       |   |   +---PopEditorTab
+|           |       |   |   +---QueryAutoRefresh
+|           |       |   |   +---QueryHistory
+|           |       |   |   +---QueryLimitSelect
+|           |       |   |   +---QueryStateLabel
+|           |       |   |   +---QueryStatusBar
+|           |       |   |   +---QueryTable
+|           |       |   |   +---ResultSet
+|           |       |   |   +---RunQueryActionButton
+|           |       |   |   +---SaveDatasetActionButton
+|           |       |   |   +---SaveDatasetModal
+|           |       |   |   +---SaveQuery
+|           |       |   |   +---ScheduleQueryButton
+|           |       |   |   +---ShareSqlLabQuery
+|           |       |   |   +---ShowSQL
+|           |       |   |   +---SouthPane
+|           |       |   |   +---SqlEditor
+|           |       |   |   +---SqlEditorLeftBar
+|           |       |   |   +---SqlEditorTabHeader
+|           |       |   |   +---SqlEditorTopBar
+|           |       |   |   +---StatusBar
+|           |       |   |   +---TabbedSqlEditors
+|           |       |   |   +---TableExploreTree
+|           |       |   |   +---TablePreview
+|           |       |   |   \---TemplateParamsEditor
+|           |       |   +---hooks
+|           |       |   |   \---useQueryEditor
+|           |       |   +---middlewares
+|           |       |   +---reducers
+|           |       |   \---utils
+|           |       +---theme
+|           |       |   +---hooks
+|           |       |   +---tests
+|           |       |   \---utils
+|           |       +---types
+|           |       +---utils
+|           |       |   +---getChartFormDiffs
+|           |       |   \---sanitizeFormData
+|           |       +---views
+|           |       |   \---CRUD
+|           |       \---visualizations
+|           |           +---dashboardComponents
+|           |           |   \---ExampleComponent
+|           |           +---presets
+|           |           \---TimeTable
+|           |               +---components
+|           |               |   +---FormattedNumber
+|           |               |   +---LeftCell
+|           |               |   +---Sparkline
+|           |               |   +---SparklineCell
+|           |               |   \---ValueCell
+|           |               +---config
+|           |               |   +---controlPanel
+|           |               |   \---transformProps
+|           |               +---images
+|           |               \---utils
+|           |                   +---colorUtils
+|           |                   +---numberUtils
+|           |                   +---rowProcessing
+|           |                   +---sortUtils
+|           |                   +---sparklineDataUtils
+|           |                   +---sparklineHelpers
+|           |                   \---valueCalculations
+|           +---superset-websocket
+|           |   +---spec
+|           |   +---src
+|           |   \---utils
+|           |       \---client-ws-app
+|           |           +---bin
+|           |           +---public
+|           |           |   +---javascripts
+|           |           |   \---stylesheets
+|           |           +---routes
+|           |           \---views
+|           \---tests
+|               +---common
+|               +---consts
+|               +---example_data
+|               |   +---data_generator
+|               |   |   +---birth_names
+|               |   |   \---tests
+|               |   \---data_loading
+|               |       +---data_definitions
+|               |       \---pandas
+|               +---fixtures
+|               +---integration_tests
+|               |   +---advanced_data_type
+|               |   +---annotation_layers
+|               |   +---async_events
+|               |   +---available_domains
+|               |   +---cachekeys
+|               |   +---charts
+|               |   |   \---data
+|               |   +---css_templates
+|               |   +---dao
+|               |   +---dashboards
+|               |   |   +---filter_state
+|               |   |   +---permalink
+|               |   |   \---security
+|               |   +---databases
+|               |   |   +---commands
+|               |   |   \---ssh_tunnel
+|               |   +---datasets
+|               |   +---datasource
+|               |   +---db_engine_specs
+|               |   +---embedded
+|               |   +---explore
+|               |   |   +---form_data
+|               |   |   \---permalink
+|               |   +---extensions
+|               |   +---fixtures
+|               |   +---importexport
+|               |   +---migrations
+|               |   +---queries
+|               |   |   \---saved_queries
+|               |   +---reports
+|               |   |   \---commands
+|               |   +---security
+|               |   +---sql_lab
+|               |   |   \---permalink
+|               |   +---tags
+|               |   +---tasks
+|               |   |   \---commands
+|               |   +---themes
+|               |   +---users
+|               |   +---utils
+|               |   \---views
+|               \---unit_tests
+|                   +---advanced_data_type
+|                   +---annotation_layers
+|                   +---async_events
+|                   +---charts
+|                   |   +---commands
+|                   |   |   +---data
+|                   |   |   \---importers
+|                   |   |       \---v1
+|                   |   +---dao
+|                   |   \---data
+|                   +---cli
+|                   +---columns
+|                   +---commands
+|                   |   +---chart
+|                   |   +---dashboard
+|                   |   +---databases
+|                   |   |   \---importers
+|                   |   |       \---v1
+|                   |   +---dataset
+|                   |   +---datasource
+|                   |   +---explore
+|                   |   |   \---form_data
+|                   |   +---importers
+|                   |   |   \---v1
+|                   |   +---logs
+|                   |   +---report
+|                   |   +---security
+|                   |   +---semantic_layer
+|                   |   +---sql_lab
+|                   |   \---theme
+|                   +---common
+|                   +---connectors
+|                   |   \---sqla
+|                   +---dao
+|                   +---daos
+|                   +---dashboards
+|                   |   \---commands
+|                   |       \---importers
+|                   |           \---v1
+|                   +---databases
+|                   |   +---commands
+|                   |   |   \---importers
+|                   |   |       \---v1
+|                   |   +---dao
+|                   |   \---ssh_tunnel
+|                   +---datasets
+|                   |   +---commands
+|                   |   |   \---importers
+|                   |   |       \---v1
+|                   |   \---dao
+|                   +---datasource
+|                   |   \---utils
+|                   +---db_engine_specs
+|                   +---distributed_lock
+|                   +---examples
+|                   +---explore
+|                   +---extensions
+|                   +---fixtures
+|                   |   \---static
+|                   |       \---assets
+|                   +---importexport
+|                   +---initialization
+|                   +---key_value
+|                   +---mcp_service
+|                   |   +---annotation_layer
+|                   |   |   \---tool
+|                   |   +---chart
+|                   |   |   +---tool
+|                   |   |   \---validation
+|                   |   +---common
+|                   |   +---dashboard
+|                   |   |   \---tool
+|                   |   +---database
+|                   |   |   \---tool
+|                   |   +---dataset
+|                   |   |   \---tool
+|                   |   +---explore
+|                   |   |   \---tool
+|                   |   +---query
+|                   |   |   \---tool
+|                   |   +---report
+|                   |   |   \---tool
+|                   |   +---rls
+|                   |   |   \---tool
+|                   |   +---role
+|                   |   |   \---tool
+|                   |   +---saved_query
+|                   |   |   \---tool
+|                   |   +---sql_lab
+|                   |   |   \---tool
+|                   |   +---system
+|                   |   |   \---tool
+|                   |   +---tag
+|                   |   |   \---tool
+|                   |   +---task
+|                   |   |   \---tool
+|                   |   +---user
+|                   |   |   \---tool
+|                   |   \---utils
+|                   +---migrations
+|                   |   +---shared
+|                   |   \---viz
+|                   +---models
+|                   |   \---sql_types
+|                   +---pandas_postprocessing
+|                   +---queries
+|                   +---reports
+|                   |   \---notifications
+|                   +---scripts
+|                   |   \---translations
+|                   +---security
+|                   +---semantic_layers
+|                   +---server
+|                   +---sql
+|                   |   +---dialects
+|                   |   \---execution
+|                   +---sqllab
+|                   +---sql_validators
+|                   +---tables
+|                   +---tags
+|                   |   \---commands
+|                   +---tasks
+|                   +---themes
+|                   +---thumbnails
+|                   +---utils
+|                   \---views
+|                       \---datasource
++---databases
+|   +---postgres_docker
+|   \---redis_docker
++---docs
++---infrastructure
+|   \---nginx_docker
+|       +---conf
+|       |   \---conf.d
+|       +---html
+|       +---logs
+|       \---ssl
++---messaging
+|   +---kafka-ui_docker
+|   +---kafka_kraft_docker
+|   \---kafka_zookeeper_docker
++---observability
+|   +---cadvisor_docker
+|   +---grafana_docker
+|   +---kafka_exporter_docker
+|   +---node_exporter_docker
+|   +---postgres_exporter_docker
+|   +---prometheus_docker
+|   \---redis_exporter_docker
++---orchestration
+|   \---airflow_docker
+|       +---config
+|       +---dags
+|       |   +---common
+|       |   \---insurance_data_platform
+|       |       \---__pycache__
+|       +---logs
+|       |   +---dag_id=example_external_task
+|       |   |   +---run_id=manual__2026-06-20T07?58?54.671128+00?00
+|       |   |   |   +---task_id=parent_task_sensor
+|       |   |   |   \---task_id=trigger_child_task
+|       |   |   \---run_id=scheduled__2022-01-01T00?00?00+00?00
+|       |   |       +---task_id=parent_task_sensor
+|       |   |       \---task_id=trigger_child_task
+|       |   +---dag_id=example_failed_dag
+|       |   |   +---run_id=manual__2026-06-20T07?58?30.591044+00?00
+|       |   |   |   \---task_id=fail_task
+|       |   |   \---run_id=scheduled__2021-01-01T00?00?00+00?00
+|       |   |       \---task_id=fail_task
+|       |   +---dag_id=insurance_data_platform
+|       |   |   +---run_id=manual__2026-06-24T10?42?31.858951+00?00
+|       |   |   |   \---task_id=run_pipeline
+|       |   |   +---run_id=manual__2026-06-24T18?11?37.989580+00?00
+|       |   |   |   \---task_id=run_pipeline
+|       |   |   +---run_id=manual__2026-06-24T18?24?51.721329+00?00
+|       |   |   |   \---task_id=run_pipeline
+|       |   |   +---run_id=manual__2026-06-24T18?29?31.369303+00?00
+|       |   |   |   \---task_id=run_pipeline
+|       |   |   +---run_id=manual__2026-06-24T18?40?02.381141+00?00
+|       |   |   |   \---task_id=run_pipeline
+|       |   |   +---run_id=manual__2026-06-24T18?45?24.671131+00?00
+|       |   |   |   \---task_id=run_pipeline
+|       |   |   +---run_id=manual__2026-06-25T04?08?51.063249+00?00
+|       |   |   |   \---task_id=run_pipeline
+|       |   |   +---run_id=manual__2026-06-25T04?26?52.942598+00?00
+|       |   |   |   \---task_id=run_pipeline
+|       |   |   +---run_id=manual__2026-06-25T04?31?41.479890+00?00
+|       |   |   |   \---task_id=run_pipeline
+|       |   |   +---run_id=manual__2026-06-25T04?47?12.810750+00?00
+|       |   |   |   \---task_id=run_pipeline
+|       |   |   +---run_id=manual__2026-06-25T19?18?21.231477+00?00
+|       |   |   |   \---task_id=generate_and_load
+|       |   |   +---run_id=manual__2026-06-26T03?27?35.419107+00?00
+|       |   |   |   +---task_id=build_dbt
+|       |   |   |   \---task_id=generate_and_load
+|       |   |   +---run_id=manual__2026-06-26T04?00?44.913404+00?00
+|       |   |   |   +---task_id=build_dbt
+|       |   |   |   \---task_id=generate_and_load
+|       |   |   +---run_id=manual__2026-06-26T04?01?48.054726+00?00
+|       |   |   |   +---task_id=build_dbt
+|       |   |   |   \---task_id=generate_and_load
+|       |   |   +---run_id=manual__2026-06-26T04?09?31.321385+00?00
+|       |   |   |   \---task_id=generate_and_load
+|       |   |   +---run_id=manual__2026-06-26T04?10?36.219418+00?00
+|       |   |   |   +---task_id=build_dbt
+|       |   |   |   \---task_id=generate_and_load
+|       |   |   +---run_id=manual__2026-06-26T04?15?37.946023+00?00
+|       |   |   |   +---task_id=build_dbt
+|       |   |   |   \---task_id=generate_and_load
+|       |   |   +---run_id=manual__2026-06-26T04?17?56.217833+00?00
+|       |   |   |   +---task_id=build_dbt
+|       |   |   |   \---task_id=generate_and_load
+|       |   |   \---run_id=manual__2026-06-26T04?19?54.076567+00?00
+|       |   |       +---task_id=build_dbt
+|       |   |       \---task_id=generate_and_load
+|       |   \---dag_processor
+|       |       +---2026-06-20
+|       |       |   \---example_dags
+|       |       |       +---plugins
+|       |       |       \---standard
+|       |       +---2026-06-21
+|       |       |   \---example_dags
+|       |       |       +---plugins
+|       |       |       \---standard
+|       |       +---2026-06-22
+|       |       |   \---example_dags
+|       |       |       +---plugins
+|       |       |       \---standard
+|       |       +---2026-06-23
+|       |       |   \---example_dags
+|       |       |       +---plugins
+|       |       |       \---standard
+|       |       +---2026-06-24
+|       |       |   +---dags-folder
+|       |       |   |   +---insurance-data-platform
+|       |       |   |   \---insurance_data_platform
+|       |       |   \---example_dags
+|       |       |       +---plugins
+|       |       |       \---standard
+|       |       +---2026-06-25
+|       |       |   \---dags-folder
+|       |       |       \---insurance_data_platform
+|       |       +---2026-06-26
+|       |       |   \---dags-folder
+|       |       |       \---insurance_data_platform
+|       |       +---2026-06-27
+|       |       |   \---dags-folder
+|       |       |       \---insurance_data_platform
+|       |       +---2026-06-28
+|       |       |   \---dags-folder
+|       |       |       \---insurance_data_platform
+|       |       +---2026-06-29
+|       |       |   \---dags-folder
+|       |       |       \---insurance_data_platform
+|       |       +---2026-06-30
+|       |       |   \---dags-folder
+|       |       |       \---insurance_data_platform
+|       |       +---2026-07-01
+|       |       |   \---dags-folder
+|       |       |       \---insurance_data_platform
+|       |       +---2026-07-02
+|       |       |   \---dags-folder
+|       |       |       \---insurance_data_platform
+|       |       +---2026-07-03
+|       |       |   \---dags-folder
+|       |       |       \---insurance_data_platform
+|       |       +---2026-07-04
+|       |       |   \---dags-folder
+|       |       |       \---insurance_data_platform
+|       |       +---2026-07-05
+|       |       |   \---dags-folder
+|       |       |       \---insurance_data_platform
+|       |       +---2026-07-06
+|       |       |   \---dags-folder
+|       |       |       \---insurance_data_platform
+|       |       +---2026-08-16
+|       |       |   \---dags-folder
+|       |       |       \---insurance_data_platform
+|       |       +---2026-08-17
+|       |       |   \---dags-folder
+|       |       |       \---insurance_data_platform
+|       |       +---2026-08-18
+|       |       |   \---dags-folder
+|       |       |       \---insurance_data_platform
+|       |       +---2026-08-19
+|       |       |   \---dags-folder
+|       |       |       \---insurance_data_platform
+|       |       +---2026-08-20
+|       |       |   \---dags-folder
+|       |       |       \---insurance_data_platform
+|       |       +---2026-08-21
+|       |       |   \---dags-folder
+|       |       |       \---insurance_data_platform
+|       |       +---2026-10-15
+|       |       |   \---dags-folder
+|       |       |       \---insurance_data_platform
+|       |       +---2026-10-16
+|       |       |   \---dags-folder
+|       |       |       \---insurance_data_platform
+|       |       +---2026-10-26
+|       |       |   \---dags-folder
+|       |       |       \---insurance_data_platform
+|       |       +---2026-11-06
+|       |       |   \---dags-folder
+|       |       |       \---insurance_data_platform
+|       |       +---2026-11-07
+|       |       |   \---dags-folder
+|       |       |       \---insurance_data_platform
+|       |       \---latest
+|       |           \---dags-folder
+|       |               \---insurance_data_platform
+|       \---plugins
++---processing
+|   +---dbt_docker
+|   |   +---logs
+|   |   +---profiles
+|   |   +---project
+|   |   |   +---dbt_docker
+|   |   |   |   +---analyses
+|   |   |   |   +---logs
+|   |   |   |   +---macros
+|   |   |   |   +---models
+|   |   |   |   |   \---example
+|   |   |   |   +---seeds
+|   |   |   |   +---snapshots
+|   |   |   |   +---target
+|   |   |   |   |   +---compiled
+|   |   |   |   |   |   \---dbt_docker
+|   |   |   |   |   |       \---models
+|   |   |   |   |   |           \---example
+|   |   |   |   |   \---run
+|   |   |   |   |       \---dbt_docker
+|   |   |   |   |           \---models
+|   |   |   |   |               \---example
+|   |   |   |   \---tests
+|   |   |   +---logs
+|   |   |   \---target
+|   |   +---projects
+|   |   |   +---insurance_data_platform
+|   |   |   |   +---analyses
+|   |   |   |   +---logs
+|   |   |   |   +---macros
+|   |   |   |   +---models
+|   |   |   |   |   +---gold
+|   |   |   |   |   +---marts
+|   |   |   |   |   |   +---dimensions
+|   |   |   |   |   |   \---facts
+|   |   |   |   |   \---staging
+|   |   |   |   |       +---claims
+|   |   |   |   |       +---finance
+|   |   |   |   |       +---master
+|   |   |   |   |       +---policy
+|   |   |   |   |       \---sales
+|   |   |   |   +---seeds
+|   |   |   |   +---snapshots
+|   |   |   |   +---target
+|   |   |   |   |   +---compiled
+|   |   |   |   |   |   \---insurance_data_platform
+|   |   |   |   |   |       \---models
+|   |   |   |   |   |           +---gold
+|   |   |   |   |   |           +---marts
+|   |   |   |   |   |           |   +---dimensions
+|   |   |   |   |   |           |   \---facts
+|   |   |   |   |   |           \---staging
+|   |   |   |   |   |               +---claims
+|   |   |   |   |   |               +---finance
+|   |   |   |   |   |               +---master
+|   |   |   |   |   |               +---policy
+|   |   |   |   |   |               +---sales
+|   |   |   |   |   |               \---sources.yml
+|   |   |   |   |   \---run
+|   |   |   |   |       \---insurance_data_platform
+|   |   |   |   |           \---models
+|   |   |   |   |               +---gold
+|   |   |   |   |               +---marts
+|   |   |   |   |               |   +---dimensions
+|   |   |   |   |               |   \---facts
+|   |   |   |   |               \---staging
+|   |   |   |   |                   +---claims
+|   |   |   |   |                   +---finance
+|   |   |   |   |                   +---master
+|   |   |   |   |                   +---policy
+|   |   |   |   |                   +---sales
+|   |   |   |   |                   \---sources.yml
+|   |   |   |   \---tests
+|   |   |   \---logs
+|   |   \---target
+|   +---flink_docker
+|   |   +---config
+|   |   +---docs
+|   |   +---jobs
+|   |   +---logs
+|   |   \---scripts
+|   +---spark_docker
+|   |   +---conf
+|   |   +---data
+|   |   +---jars
+|   |   +---jobs
+|   |   +---logs
+|   |   \---notebooks
+|   \---trino_docker
+|       +---catalog
+|       \---etc
+|           \---catalog
++---storage
+|   +---azurite_docker
+|   +---localstack_docker
+|   \---minio_docker
+\---tools
+    \---portainer_docker

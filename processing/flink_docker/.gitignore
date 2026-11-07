@@ -1,0 +1,22 @@
+# Runtime logs
+logs/*
+!logs/.gitkeep
+
+# Temporary job staging
+jobs/*
+!jobs/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# IDE
+.vscode/
+.idea/

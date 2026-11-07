@@ -1,0 +1,10 @@
+/spark_master_docker
+  F:\DockerLab\processing\spark_docker\data - (RW=/opt/spark/data)%!(EXTRA bool=true)
+  F:\DockerLab\processing\spark_docker\jobs - (RW=/opt/spark/jobs)%!(EXTRA bool=true)
+  F:\DockerLab\processing\spark_docker\logs - (RW=/opt/spark/logs)%!(EXTRA bool=true)
+  F:\DockerLab\processing\spark_docker\notebooks - (RW=/opt/spark/notebooks)%!(EXTRA bool=true)
+/spark_worker_docker
+  F:\DockerLab\processing\spark_docker\data - (RW=/opt/spark/data)%!(EXTRA bool=true)
+  F:\DockerLab\processing\spark_docker\jobs - (RW=/opt/spark/jobs)%!(EXTRA bool=true)
+  F:\DockerLab\processing\spark_docker\logs - (RW=/opt/spark/logs)%!(EXTRA bool=true)
+  F:\DockerLab\processing\spark_docker\notebooks - (RW=/opt/spark/notebooks)%!(EXTRA bool=true)
